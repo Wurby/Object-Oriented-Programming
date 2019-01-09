@@ -1,6 +1,6 @@
 /***********************************************************************
 * Program:
-*    Checkpoint 01, C++ BASICS          (e.g. Checkpoint 01a, review)  
+*    Checkpoint 01a, C++ BASICS          (e.g. Checkpoint 01a, review)  
 *    Brother Dudley, CS165
 * Author:
 *    Joshua Pearson
