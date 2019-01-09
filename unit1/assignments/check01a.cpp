@@ -12,7 +12,7 @@
 #include <string>
 using namespace std;
 
-void display(string name, int age);
+void display(int age, string name);
 string getName();
 int getAge();
 void greeting();
@@ -23,7 +23,7 @@ void greeting();
 int main()
 {
    greeting();
-   display(getName(), getAge());
+   display(getAge(), getName());
 
 
    return 0;
@@ -45,7 +45,7 @@ int getAge()
    return age;
 }
 
-void display(string name, int age)
+void display(int age, string name)
 {
    cout << "Hello " << name << ", you are "
         << age << " years old.\n";
