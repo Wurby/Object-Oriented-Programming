@@ -47,6 +47,7 @@ int getAge()
 
 void display(int age, string name)
 {
+   cout << endl;
    cout << "Hello " << name << ", you are "
         << age << " years old.\n";
 }
