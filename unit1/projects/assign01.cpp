@@ -1,29 +1,53 @@
 /***********************************************************************
 * Program:
-*    Assignment ##, ????          (e.g. Assignment 01, Hello World)  
-*    Brother {Burton, Helfrich, Comeau}, CS165
+*    Assignment 01, Genetic          (e.g. Assignment 01, Hello World)  
+*    Brother Dudley, CS165
 * Author:
-*    your name
+*    Joshua Pearson
 * Summary: 
-*    Enter a brief description of your program here!  Please note that if
-*    you do not take the time to fill out this block, YOU WILL LOSE POINTS.
-*    Before you begin working, estimate the time you think it will
-*    take you to do the assignment and include it in this header block.
-*    Before you submit the assignment include the actual time it took.
+*    Gathers some dna things for a few people and compares their
+*    similarities and pushes it out as a percentage that is similar.
 *
-*    Estimated:  0.0 hrs   
+*    Estimated:  2.0 hrs   
 *    Actual:     0.0 hrs
-*      Please describe briefly what was the most difficult part.
+*      Strings. I hate strings in C++. I really miss JS and Python
 ************************************************************************/
 
 #include <iostream>
+#include <string>
 using namespace std;
 
+int getNumberOfRelatives();
+void getUserDNA(string userDNA);
+void getRelativeName(string * names, int index);
+void getRelativeDNA(string * DNA, int index);
+int compareRelative(string userDNA, string * names, int index, int * matchPercentage);
+void displayRelative(int * matchPercentage, string * names, int index);
+
 /**********************************************************************
- * Add text here to describe what the function "main" does. Also don't forget
- * to fill this out with meaningful text or YOU WILL LOSE POINTS.
+ * Main
+ * Declares arrays and variables, calls functions.
  ***********************************************************************/
 int main()
 {
+   string userDNA;
+   getUserDNA(userDNA);
+   int numberOfRels = getNumberOfRelatives();
+   string names[numberOfRels];
+   string DNA[numberOfRels];
+   int matchPercentage[numberOfRels];
+
+   for (int i = 0; i < numberOfRels; i++)
+      getRelativeName(names, i);
+
+   for (int i = 0; i < numberOfRels; i++)
+      getRelativeDNA(DNA, i);
+
+   for (int i = 0; i < numberOfRels; i++)
+      compareRelative(userDNA, names, i, matchPercentage);
+
+   for (int i = 0; i < numberOfRels; i++)
+      displayRelative(matchPercentage, names, i);
+   
    return 0;
 }
