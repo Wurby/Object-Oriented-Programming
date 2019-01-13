@@ -87,7 +87,7 @@ void compareRelative(string * userDNA, string * DNA, int index, int * matchPerce
    int percentage = 0;
    for (int i = 0; i < 10; i++)
    {
-      if (userDNA[i] == DNA[i])
+      if (userDNA[index][i] == DNA[index][i])
          percentage += 10;
    }
    matchPercentage[index] = percentage;
