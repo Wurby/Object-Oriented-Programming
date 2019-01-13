@@ -78,7 +78,7 @@ void getRelativeName(string * names, int index)
 void getRelativeDNA(string * DNA, int index, string * names)
 {
    cout << "Please enter the DNA sequence for "
-        << " " << names[index] << ": ";
+        << names[index] << ": ";
    cin >> DNA[index];
 }
 
