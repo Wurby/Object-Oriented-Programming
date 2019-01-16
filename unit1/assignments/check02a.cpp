@@ -42,6 +42,7 @@ int main()
  ***********************************************************************/
 void getStudentInfo(Student & user)
 {
+   cin.ignore();
    cout << "Please enter your first name: ";
    cin >> user.firstName;
    cout << "Please enter your last name: ";
@@ -56,7 +57,7 @@ void getStudentInfo(Student & user)
  ***********************************************************************/
 void displayStudentInfo(Student & user)
 {
-   cout << "\nYour information: \n"
+   cout << "\nYour information:\n"
         << user.id << " - "
         << user.firstName << " "
         << user.lastName << endl;
