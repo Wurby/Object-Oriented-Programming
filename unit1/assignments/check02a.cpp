@@ -42,13 +42,16 @@ int main()
  ***********************************************************************/
 void getStudentInfo(Student & user)
 {
-   cin.ignore();
+   
    cout << "Please enter your first name: ";
    cin >> user.firstName;
+   cin.ignore();
    cout << "Please enter your last name: ";
    cin >> user.lastName;
+   cin.ignore();
    cout << "Please enter your id number: ";
    cin >> user.id;
+   cin.ignore();
 }
 
 /**********************************************************************
