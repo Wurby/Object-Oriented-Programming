@@ -36,7 +36,7 @@ void prompt(Complex & x, Complex & y)
 // TODO: Add your display function here
 void display(Complex & sum)
 {
-   cout << "The sum is: " << sum.realPart << " + " << sum.imaginaryPart
+   cout << sum.realPart << " + " << sum.imaginaryPart
         << "i";
 }
 
