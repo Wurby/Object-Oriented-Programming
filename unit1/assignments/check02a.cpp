@@ -9,13 +9,55 @@
 * ***********************************************************************/
 
 #include <iostream>
+#include <string>
 using namespace std;
+
+
+struct Student 
+{
+   string firstName;
+   string lastName;
+   int id;
+};
+
+void getStudentInfo(Student & user);
+void displayStudentInfo(Student & user);
+
 
 /**********************************************************************
  * Function: main
- * Purpose: This is the entry point and driver for the program.
+ * Purpose: does the things
  ***********************************************************************/
 int main()
 {
+   Student user;
+   getStudentInfo(user);
+   displayStudentInfo(user);
    return 0;
+}
+
+/**********************************************************************
+ * Function: getStudentInfo
+ * Purpose: gets the things
+ ***********************************************************************/
+void getStudentInfo(Student & user)
+{
+   cout << "Please enter your first name: ";
+   cin >> user.firstName;
+   cout << "Please enter your last name: ";
+   cin >> user.lastName;
+   cout << "Please enter your id number: ";
+   cin >> user.id;
+}
+
+/**********************************************************************
+ * Function: displayStudentInfo
+ * Purpose: prints the things gotted by getStudentInfo
+ ***********************************************************************/
+void displayStudentInfo(Student & user)
+{
+   cout << "\nYour information: \n"
+        << user.id << " - "
+        << user.firstName << " "
+        << user.lastName << endl;
 }
