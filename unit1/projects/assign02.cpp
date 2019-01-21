@@ -152,7 +152,7 @@ void filterRecords(Record record[500], Record filteredRecords[500], long startTi
  ***********************************************************************/
 void displayList(Record filteredRecords[500])
 {
-   std::cout << "The following records match your criteria:\n";
+   std::cout << "The following records match your criteria:\n\n";
    std::setw(15);
    std::cout << "      Timestamp" << "           File" << "           User\n";
    std::cout << "--------------- ------------------- -------------------\n";
