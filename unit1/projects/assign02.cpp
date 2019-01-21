@@ -152,9 +152,9 @@ void filterRecords(Record record[500], Record filteredRecords[500], long startTi
  ***********************************************************************/
 void displayList(Record filteredRecords[500])
 {
-   std::cout << "The following records match your criteria:";
+   std::cout << "The following records match your criteria:\n";
    std::setw(15);
-   std::cout << "\tTimestamp" << "\tFile" << "\tUser";
+   std::cout << "\tTimestamp" << "\tFile" << "\tUser\n";
    std::cout << "--------------- ------------------- -------------------";
    for (int i = 0; i < 500; i++) // Yup... 500. Bad. So bad. Gonna hit the end
    {                             // of the data and just keep on truckin'
