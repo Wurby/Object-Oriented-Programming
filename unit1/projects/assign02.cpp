@@ -87,7 +87,7 @@ void getFilename(std::string & filename)
 void readFile(std::string & filename, Record record[500])
 {
    std::ifstream fin;
-   fin.open(filename);
+   fin.open(filename.c_str());
    for (int i = 0; i < 500; i++) // I couldn't figure out how to get this to
    {                             // stop at the end of file instead of 500
       if (!fin.fail())
