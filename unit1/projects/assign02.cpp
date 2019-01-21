@@ -78,6 +78,7 @@ void getFilename(std::string & filename)
 {
    std::cout << "Enter the access record file: ";
    std::cin >> filename;
+   std::cout << std::endl;
 }
 
 /**********************************************************************
@@ -123,6 +124,7 @@ long getEndTime()
    long endTime = 0;
    std::cout << "Enter the end time: ";
    std::cin >> endTime;
+   std::cout << std::endl;
    return endTime;
 }
 
@@ -150,6 +152,7 @@ void filterRecords(Record record[500], Record filteredRecords[500], long startTi
  ***********************************************************************/
 void displayList(Record filteredRecords[500])
 {
+   std::cout << "The following records match your criteria:";
    std::setw(15);
    std::cout << "\tTimestamp" << "\tFile" << "\tUser";
    std::cout << "--------------- ------------------- -------------------";
