@@ -21,7 +21,8 @@ int main()
 {
    int number = 0;
    number = prompt();
-
+   if (number == -1)
+      return -1;
    std::cout << "The number is " << number << "." << std::endl;
 
    return 0;
@@ -48,5 +49,6 @@ int prompt()
    catch(const std::string message)
    {
       std::cout << "Error: " << message << std::endl;
+      return -1;
    }
 }
