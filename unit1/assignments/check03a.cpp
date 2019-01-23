@@ -22,7 +22,7 @@ int main()
    int number = 0;
    number = prompt();
 
-   std::cout << "The number is " << number << std::endl;
+   std::cout << "The number is " << number << "." << std::endl;
 
    return 0;
 }
