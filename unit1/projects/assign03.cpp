@@ -152,7 +152,13 @@ void parseLine(std::string line, std::vector<Record> parsedRecords)
          {
             long tstamp;
             if (ts >> tstamp)
+            {
+               if (tstamp < 1000000000)
+                  throw "Error parsing line: ";
+               if (tstamp > 10000000000)
+                  throw "Error oarsing line: "; 
                tempRecord.timestamp = tstamp;
+            }
             else
             {
                throw "Error parsing line: ";
