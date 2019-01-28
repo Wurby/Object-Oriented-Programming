@@ -1,6 +1,6 @@
 /***********************************************************************
 * Program:
-*    Assignment 02, DIGITAL FORENSICS  (e.g. Assignment 01, Hello World)  
+*    Assignment 03, DIGITAL FORENSICS  (e.g. Assignment 01, Hello World)  
 *    Brother Dudley, CS165
 * Author:
 *    Joshua Pearson
@@ -27,6 +27,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <cassert>
 
 /**********************************************************************
  * struct: Record
@@ -89,9 +90,10 @@ void parsefile(std::string filename, std::vector<Record> parsedRecords)
    std::fstream fin;
    fin.open(filename.c_str());
    std::string line;
-   for (int i = 0; i < fin.eof(); i++)
+   
+   while (!fin.eof())
    {
-   getline(fin, line);
+   getline(fin, line, '\n');
    parseLine(line, parsedRecords);
    }
 }
