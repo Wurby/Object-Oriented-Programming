@@ -42,11 +42,11 @@ struct Record
 
 void getFilename(std::string & filename);
 void parsefile(std::string filename, std::vector<Record> parsedRecords);
-void parsefile(std::string filename, std::vector<Record> parsedRecords);
+void parseLine(std::string line, std::vector<Record> parsedRecords);
 long getStartTime();
 long getEndTime();
 void filterRecords(std::vector<Record> record, std::vector<Record> filteredRecords, long startTime, long endTime);
-void displayList(Record filteredRecords[500]);
+void displayList(std::vector<Record> filterRecords);
 
 
 
@@ -64,6 +64,7 @@ int main()
    std::vector<Record> filteredRecords;
 
    getFilename(filename);
+   parsefile(filename, parsedRecords);
    startTime = getStartTime();
    endTime = getEndTime();
    filterRecords(record, filteredRecords, startTime, endTime); 
@@ -85,12 +86,89 @@ void getFilename(std::string & filename)
 
 void parsefile(std::string filename, std::vector<Record> parsedRecords)
 {
-
+   std::fstream fin;
+   fin.open(filename);
+   std::string line;
+   for (int i = 0; i < fin.eof(); i++)
+   {
+   getline(fin, line);
+   parseLine(line, parsedRecords);
+   }
 }
 
 void parseLine(std::string line, std::vector<Record> parsedRecords)
 {
+   std::stringstream ssline(line);
 
+   std::string filename;
+   std::string username;
+   std::string timestamp;
+   Record tempRecord;
+
+   try
+   {
+      while (ssline >> filename)
+      {
+         std::stringstream fn(filename);
+
+         while (fn)
+         {
+            std::string fname;
+            if (fn >> fname)
+               tempRecord.filename = fname;
+            else
+            {
+               throw "Error parsing line: ";
+               fn.clear();
+               fn.ignore();
+            }
+         }
+      }
+
+      while (ssline >> username)
+      {
+         std::stringstream un(username);
+
+         while (un)
+         {
+            std::string uname;
+            if (un >> uname)
+               tempRecord.username = uname;
+            else
+            {
+               throw "Error parsing line: ";
+               un.clear();
+               un.ignore();
+            }
+            
+         }
+      }
+      
+      while (ssline >> timestamp)
+      {
+         std::stringstream ts(timestamp);
+
+         while (ts)
+         {
+            long tstamp;
+            if (ts >> tstamp)
+               tempRecord.timestamp = tstamp;
+            else
+            {
+               throw "Error parsing line: ";
+               ts.clear();
+               ts.ignore();
+            }
+            
+         }
+      }
+      parsedRecords.push_back(tempRecord);
+   }
+   
+   catch (const char * message)
+   {
+      std::cout << message << line << std::endl; 
+   }
 }
 
 /**********************************************************************
@@ -146,8 +224,8 @@ void displayList(std::vector<Record> filteredRecords)
    std::setw(15);
    std::cout << "      Timestamp" << "           File" << "           User\n";
    std::cout << "--------------- ------------------- -------------------\n";
-   for (int i = 0; i < 500; i++) // Yup... 500. Bad. So bad. Gonna hit the end
-   {                             // of the data and just keep on truckin'
+   for (int i = 0; i < 500; i++) 
+   {                             
       std::cout << "\t" << filteredRecords[i].filename 
                 << "\t" << filteredRecords[i].username 
                 << "\t" << filteredRecords[i].timestamp << std::endl;
