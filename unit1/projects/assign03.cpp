@@ -94,6 +94,7 @@ void parsefile(std::string filename, std::vector<Record> parsedRecords)
    while (!fin.eof())
    {
    getline(fin, line, '\n');
+   cout << line;
    parseLine(line, parsedRecords);
    }
 }
