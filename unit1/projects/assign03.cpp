@@ -6,21 +6,15 @@
 *    Joshua Pearson
 * Summary: 
 *    This reads a log file a filters it to find users that logged in 
-*    during certain windows.
-*    Estimated:  3.0 hrs   
-*    Actual:     5.5 hrs
-*      I have some holes in understanding files and arrays.
+*    during certain windows, displaying errors along the way
+*    with currupted data.
+*    Estimated:  4.0 hrs   
+*    Actual:     6.5 hrs
+*      I think it's not reading the file. Can't figure out why.
 ************************************************************************/
 
 
-/**********************************************************************
- * This has a lot of problems, and I have been unable to figure them 
- * out in the necessary time. I have already emailed Daniel at this
- * point, I think my issues mostly are rooted in my poor understanding
- * of arrays and how files are read and stored. See notes below for
- * where I already know there are problems. I wish I'd had more time
- * this week to work on this assignment.
- ***********************************************************************/
+
 #include <vector>
 #include <iostream>
 #include <iomanip>
