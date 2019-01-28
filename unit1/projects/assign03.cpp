@@ -87,7 +87,7 @@ void getFilename(std::string & filename)
 void parsefile(std::string filename, std::vector<Record> parsedRecords)
 {
    std::fstream fin;
-   fin.open(filename);
+   fin.open(filename.c_str());
    std::string line;
    for (int i = 0; i < fin.eof(); i++)
    {
