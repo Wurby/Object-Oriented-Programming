@@ -60,7 +60,6 @@ int main()
    std::string filename;
    long startTime = 0;
    long endTime = 0;
-   std::vector<Record> record;
    std::vector<Record> parsedRecords;
    std::vector<Record> filteredRecords;
 
@@ -68,7 +67,7 @@ int main()
    parsefile(filename, parsedRecords);
    startTime = getStartTime();
    endTime = getEndTime();
-   filterRecords(record, filteredRecords, startTime, endTime); 
+   filterRecords(parsedRecords, filteredRecords, startTime, endTime); 
    displayList(filteredRecords);
 
    return 0;
@@ -94,7 +93,6 @@ void parsefile(std::string filename, std::vector<Record> parsedRecords)
    while (!fin.eof())
    {
    getline(fin, line, '\n');
-   std::cout << line;
    parseLine(line, parsedRecords);
    }
 }
