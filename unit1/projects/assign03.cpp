@@ -40,8 +40,8 @@ void parsefile(const std::string & filename, std::vector<Record> & parsedRecords
 Record parseLine(const std::string & line) throw (std::string);
 long getStartTime();
 long getEndTime();
-void filterRecords(std::vector<Record> record, std::vector<Record> filteredRecords, long startTime, long endTime);
-void displayList(std::vector<Record> filterRecords);
+void filterRecords(std::vector<Record> & record, std::vector<Record> & filteredRecords, long startTime, long endTime);
+void displayList(std::vector<Record> & filterRecords);
 
 
 
@@ -153,11 +153,11 @@ long getEndTime()
  * takes the access entries within a timerange and puts it in the
  * filtered record array ready for printing.
  ***********************************************************************/
-void filterRecords(std::vector<Record> record, std::vector<Record> filteredRecords, long startTime, long endTime)
+void filterRecords(std::vector<Record> & record, std::vector<Record> & filteredRecords, long startTime, long endTime)
 {
-   for (int i = 0; i < 500; i++) 
+   for (int i = 0; i < record.size(); i++) 
    {                             
-      if (endTime > record[i].timestamp > startTime)
+      if (record[i].timestamp > startTime && record[i].timestamp < endTime)
       {
          filteredRecords[i].filename = record[i].filename;
          filteredRecords[i].username = record[i].username;
@@ -170,16 +170,17 @@ void filterRecords(std::vector<Record> record, std::vector<Record> filteredRecor
  * displayList
  * prints filtered record array.
  ***********************************************************************/
-void displayList(std::vector<Record> filteredRecords)
+void displayList(std::vector<Record> & filteredRecords)
 {
    std::cout << "The following records match your criteria:\n\n";
    std::setw(15);
    std::cout << "      Timestamp" << "           File" << "           User\n";
    std::cout << "--------------- ------------------- -------------------\n";
-   for (int i = 0; i < 500; i++) 
-   {                             
+   for (int i = 0; i < filteredRecords.size(); i++)
+   {
       std::cout << "\t" << filteredRecords[i].filename 
                 << "\t" << filteredRecords[i].username 
                 << "\t" << filteredRecords[i].timestamp << std::endl;
    }
+   
 }
