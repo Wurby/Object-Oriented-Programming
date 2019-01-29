@@ -78,17 +78,23 @@ void getFilename(std::string & filename)
    std::cout << std::endl;
 }
 
-void parsefile(std::string filename, std::vector<Record> parsedRecords)
+void parsefile(const std::string & filename, std::vector<Record> & parsedRecords)
 {
    std::fstream fin;
    fin.open(filename.c_str());
+   if (fin.fail())
+   {
+      std::cout << "Failed to open file " << filename << std::endl;
+      return;
+   }
    std::string line;
    
    while (!fin.eof())
    {
-   getline(fin, line, '\n');
+   getline(fin, line);
    parseLine(line, parsedRecords);
    }
+   fin.close();
 }
 
 void parseLine(std::string line, std::vector<Record> parsedRecords)
