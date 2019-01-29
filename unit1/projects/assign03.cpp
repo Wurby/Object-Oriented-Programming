@@ -61,7 +61,7 @@ int main()
    parsefile(filename, parsedRecords);
    startTime = getStartTime();
    endTime = getEndTime();
-   filterRecords(parsedRecords, filteredRecords, startTime, endTime); 
+   // filterRecords(parsedRecords, filteredRecords, startTime, endTime); 
    displayList(filteredRecords);
 
    return 0;
@@ -173,9 +173,9 @@ void filterRecords(std::vector<Record> & record, std::vector<Record> & filteredR
 void displayList(std::vector<Record> & filteredRecords)
 {
    std::cout << "The following records match your criteria:\n" << std::endl;
-   std::cout << std::setw(15);
    std::cout << "      Timestamp" << "           File" << "           User\n";
    std::cout << "--------------- ------------------- -------------------\n";
+   std::cout << std::setw(15);
    for (int i = 0; i < filteredRecords.size(); i++)
    {
       std::cout << "\t" << filteredRecords[i].filename 
