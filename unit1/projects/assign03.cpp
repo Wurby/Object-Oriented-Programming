@@ -165,9 +165,10 @@ long getEndTime()
  ***********************************************************************/
 void filterRecords(std::vector<Record> & record, std::vector<Record> & filteredRecords, long startTime, long endTime)
 {
-   std::cout << record[0].filename << record[0].username << record[0].timestamp << std::endl;
+   
    for (int i = 0; i < record.size(); i++) 
    {                             
+      std::cout << record[0].filename << record[0].username << record[0].timestamp << std::endl;
       if (record[i].timestamp > startTime)
       {
          if (record[i].timestamp < endTime)
