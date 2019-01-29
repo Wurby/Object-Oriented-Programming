@@ -77,6 +77,11 @@ void getFilename(std::string & filename)
    std::cin >> filename;
 }
 
+/**********************************************************************
+ * parseFile
+ * this reads a line from a file and passes line to parseline, catching
+ * any returned errors.
+ ***********************************************************************/
 void parsefile(const std::string & filename, std::vector<Record> & parsedRecords)
 {
    std::ifstream fin;
@@ -104,6 +109,11 @@ void parsefile(const std::string & filename, std::vector<Record> & parsedRecords
    std::cout << std::endl;
 }
 
+/**********************************************************************
+ * parseLine
+ * This get a line and checks it for errors, then adds it to a Record
+ * throws any errors that may come up.
+ ***********************************************************************/
 Record parseLine(const std::string & line) throw (std::string)
 {
    std::stringstream ssline(line);
