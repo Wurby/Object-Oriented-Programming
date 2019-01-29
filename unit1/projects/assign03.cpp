@@ -75,7 +75,6 @@ void getFilename(std::string & filename)
 {
    std::cout << "Enter the access record file: ";
    std::cin >> filename;
-   std::cout << std::endl;
 }
 
 void parsefile(const std::string & filename, std::vector<Record> & parsedRecords)
