@@ -165,6 +165,8 @@ long getEndTime()
  ***********************************************************************/
 void filterRecords(std::vector<Record> & record, std::vector<Record> & filteredRecords, long startTime, long endTime)
 {
+   // There's something wrong here, and for whatever reason, 
+   // I can't seem to figure it out.  
    for (int i = 0; i < record.size(); i++) 
    {                             
       if (record[i].timestamp > startTime)
