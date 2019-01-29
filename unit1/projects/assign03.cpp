@@ -61,7 +61,7 @@ int main()
    parsefile(filename, parsedRecords);
    startTime = getStartTime();
    endTime = getEndTime();
-   // filterRecords(parsedRecords, filteredRecords, startTime, endTime); 
+   filterRecords(parsedRecords, filteredRecords, startTime, endTime); 
    displayList(filteredRecords);
 
    return 0;
@@ -182,5 +182,6 @@ void displayList(std::vector<Record> & filteredRecords)
                 << "\t" << filteredRecords[i].username 
                 << "\t" << filteredRecords[i].timestamp << std::endl;
    }
+   std::cout << "End of records\n";
    
 }
