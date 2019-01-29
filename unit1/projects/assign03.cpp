@@ -109,7 +109,7 @@ Record parseLine(const std::string & line) throw (std::string)
    std::stringstream ssline(line);
    Record tempRecord;
    ssline >> tempRecord.filename >> tempRecord.username >> tempRecord.timestamp;
-   if (ssline.fail() || tempRecord.timestamp > 1000000000 || tempRecord.timestamp < 10000000000)
+   if (ssline.fail() || tempRecord.timestamp < 1000000000 || tempRecord.timestamp > 10000000000)
    {
       std::string err = "Error parsing line: ";
       err += line;
