@@ -154,7 +154,7 @@ long getEndTime()
    long endTime = 0;
    std::cout << "Enter the end time: ";
    std::cin >> endTime;
-   // std::cout << std::endl;
+   std::cout << std::endl;
    return endTime;
 }
 
