@@ -173,7 +173,7 @@ void filterRecords(std::vector<Record> & record, std::vector<Record> & filteredR
 void displayList(std::vector<Record> & filteredRecords)
 {
    std::cout << "The following records match your criteria:\n" << std::endl;
-   std::cout << "      Timestamp" << "           File" << "           User\n";
+   std::cout << "      Timestamp" << "                 File" << "               User\n";
    std::cout << "--------------- ------------------- -------------------\n";
    std::cout << std::setw(15);
    for (int i = 0; i < filteredRecords.size(); i++)
