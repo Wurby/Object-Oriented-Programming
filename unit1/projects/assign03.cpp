@@ -36,7 +36,7 @@ struct Record
 };
 
 void getFilename(std::string & filename);
-void parsefile(std::string filename, std::vector<Record> parsedRecords);
+void parsefile(const std::string & filename, std::vector<Record> & parsedRecords);
 void parseLine(std::string line, std::vector<Record> parsedRecords);
 long getStartTime();
 long getEndTime();
