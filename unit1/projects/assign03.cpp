@@ -88,9 +88,8 @@ void parsefile(const std::string & filename, std::vector<Record> & parsedRecords
    }
    std::string line;
    Record tempRecord;
-   while (!fin.eof())
+   while (getline(fin, line))
    {
-      getline(fin, line);
       try
       {
       tempRecord = parseLine(line);
