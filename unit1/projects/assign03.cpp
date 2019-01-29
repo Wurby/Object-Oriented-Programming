@@ -37,7 +37,7 @@ struct Record
 
 void getFilename(std::string & filename);
 void parsefile(const std::string & filename, std::vector<Record> & parsedRecords);
-void parseLine(std::string line, std::vector<Record> parsedRecords);
+Record parseLine(const std::string & line) throw (std::string);
 long getStartTime();
 long getEndTime();
 void filterRecords(std::vector<Record> record, std::vector<Record> filteredRecords, long startTime, long endTime);
@@ -87,94 +87,40 @@ void parsefile(const std::string & filename, std::vector<Record> & parsedRecords
       return;
    }
    std::string line;
-   
+   Record tempRecord;
    while (!fin.eof())
    {
-   getline(fin, line);
-   parseLine(line, parsedRecords);
+      getline(fin, line);
+      try
+      {
+      tempRecord = parseLine(line);
+      parsedRecords.push_back(tempRecord);
+      }
+      catch (std::string message)
+      {
+         std::cout << message << std::endl;
+      }
    }
    fin.close();
 }
 
-void parseLine(std::string line, std::vector<Record> parsedRecords)
+Record parseLine(const std::string & line) throw (std::string)
 {
    std::stringstream ssline(line);
-
-   std::string filename;
-   std::string username;
-   std::string timestamp;
    Record tempRecord;
-
-   try
+   ssline >> tempRecord.filename >> tempRecord.username >> tempRecord.timestamp;
+   if (ssline.fail() || tempRecord.timestamp > 1000000000 || tempRecord.timestamp < 10000000000)
    {
-      while (ssline >> filename)
-      {
-         std::stringstream fn(filename);
-
-         while (fn)
-         {
-            std::string fname;
-            if (fn >> fname)
-               tempRecord.filename = fname;
-            else
-            {
-               throw "Error parsing line: ";
-               fn.clear();
-               fn.ignore();
-            }
-         }
-      }
-
-      while (ssline >> username)
-      {
-         std::stringstream un(username);
-
-         while (un)
-         {
-            std::string uname;
-            if (un >> uname)
-               tempRecord.username = uname;
-            else
-            {
-               throw "Error parsing line: ";
-               un.clear();
-               un.ignore();
-            }
-            
-         }
-      }
-      
-      while (ssline >> timestamp)
-      {
-         std::stringstream ts(timestamp);
-
-         while (ts)
-         {
-            long tstamp;
-            if (ts >> tstamp)
-            {
-               if (tstamp < 1000000000)
-                  throw "Error parsing line: ";
-               if (tstamp > 10000000000)
-                  throw "Error oarsing line: "; 
-               tempRecord.timestamp = tstamp;
-            }
-            else
-            {
-               throw "Error parsing line: ";
-               ts.clear();
-               ts.ignore();
-            }
-            
-         }
-      }
-      parsedRecords.push_back(tempRecord);
+      std::string err = "Error parsing line ";
+      err += line;
+      throw err;
+   }
+   else
+   {
+      return tempRecord;
    }
    
-   catch (const char * message)
-   {
-      std::cout << message << line << std::endl; 
-   }
+   
 }
 
 /**********************************************************************
