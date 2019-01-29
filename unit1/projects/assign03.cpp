@@ -168,11 +168,14 @@ void filterRecords(std::vector<Record> & record, std::vector<Record> & filteredR
    std::cout << record[0].filename << record[0].username << record[0].timestamp << std::endl;
    for (int i = 0; i < record.size(); i++) 
    {                             
-      if (record[i].timestamp > startTime && record[i].timestamp < endTime)
+      if (record[i].timestamp > startTime)
       {
-         filteredRecords[i].filename = record[i].filename;
-         filteredRecords[i].username = record[i].username;
-         filteredRecords[i].timestamp = record[i].timestamp;
+         if (record[i].timestamp < endTime)
+         {
+            filteredRecords[i].filename = record[i].filename;
+            filteredRecords[i].username = record[i].username;
+            filteredRecords[i].timestamp = record[i].timestamp;
+         }
       }
    }
 }
