@@ -80,7 +80,7 @@ void getFilename(std::string & filename)
 
 void parsefile(const std::string & filename, std::vector<Record> & parsedRecords)
 {
-   std::fstream fin;
+   std::ifstream fin;
    fin.open(filename.c_str());
    if (fin.fail())
    {
