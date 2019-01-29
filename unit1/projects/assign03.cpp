@@ -101,6 +101,7 @@ void parsefile(const std::string & filename, std::vector<Record> & parsedRecords
       }
    }
    fin.close();
+   std::cout << std::endl;
 }
 
 Record parseLine(const std::string & line) throw (std::string)
