@@ -5,12 +5,12 @@
 * Author:
 *    Joshua Pearson
 * Summary: 
-*    This reads a log file a filters it to find users that logged in 
+*    This reads a logfile and filters it to find users that logged in 
 *    during certain windows, displaying errors along the way
 *    with currupted data.
 *    Estimated:  4.0 hrs   
-*    Actual:     6.5 hrs
-*      I think it's not reading the file. Can't figure out why.
+*    Actual:     9.5 hrs
+*      Got some help with parseline and parsefile from Daniel.
 ************************************************************************/
 
 
@@ -172,8 +172,8 @@ void filterRecords(std::vector<Record> & record, std::vector<Record> & filteredR
  ***********************************************************************/
 void displayList(std::vector<Record> & filteredRecords)
 {
-   std::cout << "The following records match your criteria:\n\n";
-   std::setw(15);
+   std::cout << "The following records match your criteria:\n" << std::endl;
+   std::cout << std::setw(15);
    std::cout << "      Timestamp" << "           File" << "           User\n";
    std::cout << "--------------- ------------------- -------------------\n";
    for (int i = 0; i < filteredRecords.size(); i++)
