@@ -154,7 +154,6 @@ long getEndTime()
    long endTime = 0;
    std::cout << "Enter the end time: ";
    std::cin >> endTime;
-   std::cout << std::endl;
    return endTime;
 }
 
@@ -185,7 +184,7 @@ void filterRecords(std::vector<Record> & record, std::vector<Record> & filteredR
  ***********************************************************************/
 void displayList(std::vector<Record> & filteredRecords)
 {
-   std::cout << "The following records match your criteria:\n" << std::endl;
+   std::cout << "The following records match your criteria:\n";
    std::cout << "      Timestamp" << "                File" << "                User\n";
    std::cout << "--------------- ------------------- -------------------\n";
    std::cout << std::setw(15);
