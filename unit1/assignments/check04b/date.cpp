@@ -3,6 +3,7 @@
  * Purpose: Holds the implementation of the Date class methods.
  ********************************************************************/
 #include "date.h"
+#include <iostream>
 // Put your method bodies here...
 
 void Date::set(int month, int day, int year)
