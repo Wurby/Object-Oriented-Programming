@@ -32,9 +32,9 @@ class Book
 void Book :: prompt()
 {
    std::cout << "Title: ";
-   std::cin >> title;
+   std::getline (std::cin, title);
    std::cout << "Author: ";
-   std::cin >> author;
+   std::getline (std::cin, author);
 }
 /**********************************************************************
  * Function: Display
