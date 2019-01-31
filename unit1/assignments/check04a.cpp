@@ -1,6 +1,6 @@
 /***********************************************************************
 * Program:
-*    Checkpoint ###, ????          (e.g. Checkpoint 01a, review)  
+*    Checkpoint 04a, classes          (e.g. Checkpoint 01a, review)  
 *    Brother Dudley, CS165
 * Author:
 *    Joshua Pearson
