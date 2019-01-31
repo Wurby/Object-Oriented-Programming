@@ -19,6 +19,7 @@ int main()
    std::cin >> day;
    std::cout << "Year: ";
    std::cin >> year;
+   std::cout << std::endl;
    // create a Date object
    Date test;
    // set its values
