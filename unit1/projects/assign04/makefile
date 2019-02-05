@@ -1,9 +1,9 @@
 ###############################################################
 # Program:
 #     Assignment 04, Product inventory
-#     Brother {Burton, Falin, Ercanbrack, Comeau}, CS165
+#     Brother Dudley, CS165
 # Author:
-#     your name here
+#     Joshua Pearson
 # Summary:
 #     Put your summary code here... 
 ###############################################################

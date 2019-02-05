@@ -1,48 +1,46 @@
 /***************************************************************
  * File: assign04.cpp
- * Author: (your name here)
+ * Author: Joshua Pearson
  * Purpose: Contains the main function to test the Product class.
  ***************************************************************/
 
 #include <iostream>
 #include <string>
-using namespace std;
+
 
 #include "product.h"
 
 int main()
 {
-   // Declare your Product object here
-   
+   Product product;
 
-   // Call your prompt function here
-
+   product.prompt();
 
 
-   cout << endl;
-   cout << "Choose from the following options:\n";
-   cout << "1 - Advertising profile\n";
-   cout << "2 - Inventory line item\n";
-   cout << "3 - Receipt\n";
-   cout << endl;
-   cout << "Enter the option that you would like displayed: ";
+   std::cout << std::endl;
+   std::cout << "Choose from the following options:\n";
+   std::cout << "1 - Advertising profile\n";
+   std::cout << "2 - Inventory line item\n";
+   std::cout << "3 - Receipt\n";
+   std::cout << std::endl;
+   std::cout << "Enter the option that you would like displayed: ";
 
    int choice;
-   cin >> choice;
+   std::cin >> choice;
 
-   cout << endl;
+   std::cout << std::endl;
 
    if (choice == 1)
    {
-      // Call your display advertising profile function here
+      product.displayAdvertising();
    }
    else if (choice == 2)
    {
-      // Call your display inventory line item function here
+      product.displayInventoryLine();
    }
    else
    {
-      // Call your display receipt function here
+      product.displayReceipt();
    }
 
    return 0;
