@@ -11,11 +11,22 @@ private:
    int cents;
    void setCents(int cents)
    {
-      this->cents = cents; 
+      if (cents > 0)
+         this->cents = cents;
+      else
+      {
+         this->cents = -cents;
+      }
    }
    void setDollars(int dollars)
    {
-      this->dollars = dollars;
+      if (dollars > 0)
+         this->dollars = dollars;
+      else
+      {
+         this->dollars = -dollars;
+      }
+      
    }
 public:
    void prompt();
