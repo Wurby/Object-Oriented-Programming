@@ -20,11 +20,11 @@ private:
 public:
    void prompt();
    void display() const;
-   void getCents()
+   int getCents() const
    {
       return cents;
    }
-   void getDollars()
+   int getDollars() const
    {
       return dollars;
    }
