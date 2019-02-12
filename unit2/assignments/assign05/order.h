@@ -49,7 +49,10 @@ class Order : public Product, public Customer // Is this bad practice and should
     {
         return getZip();
     }
-    double getTotalPrice();
+    double getTotalPrice()
+    {
+        return Product::getTotalPrice();
+    }
     void displayShippingLabel();
     void displayInformation();
 };
