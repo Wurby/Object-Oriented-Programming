@@ -7,6 +7,11 @@
 
 class Customer : public Address // Is this bad practice and should I have used Product::constructorName?
 {
+
+  private:
+    std::string name;
+    Address address;
+
   public:
     Customer()
     {
@@ -19,11 +24,6 @@ class Customer : public Address // Is this bad practice and should I have used P
         this->address = address;
     }
 
-  private:
-    std::string name;
-    Address address;
-
-  public:
     std::string getName()
     {
         return this->name;

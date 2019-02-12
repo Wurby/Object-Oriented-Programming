@@ -8,6 +8,12 @@
 
 class Order : public Product, public Customer // Is this bad practice and should I have used Product::constructorName?
 {
+
+  private:
+    Product product;
+    int quantity;
+    Customer customer;
+
   public:
     Order()
     {
@@ -21,13 +27,6 @@ class Order : public Product, public Customer // Is this bad practice and should
         this->quantity = quantity;
         this->customer = customer;
     }
-
-  private:
-    Product product;
-    int quantity;
-    Customer customer;
-
-  public:
     Product getProduct()
     {
         return this->product;
