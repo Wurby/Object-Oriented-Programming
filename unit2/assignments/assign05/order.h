@@ -6,8 +6,53 @@
 #include "product.h"
 #include "customer.h"
 
+class Order : public Product, public Customer // Is this bad practice and should I have used Product::constructorName?
+{
+  public:
+    Order()
+    {
+        this->quantity = 0;
+        Product();
+        Customer();
+    }
+    Order(Product product, Customer customer, int quantity)
+    {
+        this->product = product;
+        this->quantity = quantity;
+        this->customer = customer;
+    }
 
-// Put your Order class here
+  private:
+    Product product;
+    int quantity;
+    Customer customer;
+
+  public:
+    Product getProduct()
+    {
+        return this->product;
+    }
+    int getQuantity()
+    {
+        return this->quantity;
+    }
+    Customer getCustomer()
+    {
+        return this->customer;
+    }
+
+    void setProduct(Product product);
+    void setQuantity(int quantity);
+    void setCustomer(Customer customer);
+
+    std::string getShippingZip()
+    {
+        return getZip();
+    }
+    double getTotalPrice();
+    void displayShippingLabel();
+    void displayInformation();
+};
 
 // Create a class for an Order that has the following private data members:
 // product : Product

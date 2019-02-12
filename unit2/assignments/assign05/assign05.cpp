@@ -11,7 +11,6 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-using namespace std;
 
 #include "order.h"
 #include "product.h"
@@ -23,125 +22,125 @@ int main()
    ///////////////////////////////////////
    // Address Class
    ///////////////////////////////////////
-   cout << "*** ADDRESS ***\n";
-   cout << "Default constructor:\n";
+   std::cout << "*** ADDRESS ***\n";
+   std::cout << "Default constructor:\n";
    Address home;
    home.display();
-   cout << endl;
+   std::cout << std::endl;
 
-   cout << "Getters/Setters:\n";
+   std::cout << "Getters/Setters:\n";
    home.setStreet("Bag End");
    home.setCity("The Shire");
    home.setState("ME");
    home.setZip("12345");
 
-   cout << "Street: " << home.getStreet() << endl;
-   cout << "City: " << home.getCity() << endl;
-   cout << "State: " << home.getState() << endl;
-   cout << "Zip: " << home.getZip() << endl;
-   cout << endl;
+   std::cout << "Street: " << home.getStreet() << std::endl;
+   std::cout << "City: " << home.getCity() << std::endl;
+   std::cout << "State: " << home.getState() << std::endl;
+   std::cout << "Zip: " << home.getZip() << std::endl;
+   std::cout << std::endl;
 
-   cout << "Display:\n";
+   std::cout << "Display:\n";
    home.display();
-   cout << endl;
+   std::cout << std::endl;
 
-   cout << "Non-default constructor:\n";
+   std::cout << "Non-default constructor:\n";
    Address hotel("The Prancing Pony", "Bree", "BR", "99999");
 
    hotel.display();
-   cout << endl;
+   std::cout << std::endl;
 
    /////////////////////////////////////////
    // Customer Class
    /////////////////////////////////////////
-   cout << "*** CUSTOMER ***\n";
-   cout << "Default constructor:\n";
+   std::cout << "*** CUSTOMER ***\n";
+   std::cout << "Default constructor:\n";
    Customer frodo;
    frodo.display();
-   cout << endl;
+   std::cout << std::endl;
 
-   cout << "Getters/Setters\n";
+   std::cout << "Getters/Setters\n";
    frodo.setName("Frodo Baggins");
    frodo.setAddress(home);
 
-   cout << "Name: " << frodo.getName() << endl;
-   cout << "Address:\n";
+   std::cout << "Name: " << frodo.getName() << std::endl;
+   std::cout << "Address:\n";
    frodo.getAddress().display();
-   cout << endl;
+   std::cout << std::endl;
 
-   cout << "Non-default constructor:\n";
+   std::cout << "Non-default constructor:\n";
    Customer gandalf("Gandalf the Grey", hotel);
    gandalf.display();
-   cout << endl;
+   std::cout << std::endl;
 
    /////////////////////////////////////////////
    // Product Class
    /////////////////////////////////////////////
-   cout << "*** PRODUCT ***\n";
-   cout << "Default constructor:\n";
+   std::cout << "*** PRODUCT ***\n";
+   std::cout << "Default constructor:\n";
    Product theRing;
    theRing.displayAdvertising();
-   cout << endl;
+   std::cout << std::endl;
 
-   cout << "Getters/Setters:\n";
+   std::cout << "Getters/Setters:\n";
    theRing.setName("Ring of Power");
    theRing.setDescription("One Ring to bring them all and in the darkness bind them");
    theRing.setWeight(1);
    theRing.setBasePrice(999);
 
-   cout.setf(ios::fixed);
-   cout.setf(ios::showpoint);
-   cout.precision(2);
+   std::cout.setf(std::ios::fixed);
+   std::cout.setf(std::ios::showpoint);
+   std::cout.precision(2);
 
-   cout << "Name: " << theRing.getName() << endl;
-   cout << "Description: " << theRing.getDescription() << endl;
-   cout << "Weight: " << theRing.getWeight() << endl;
-   cout << "BasePrice: " << theRing.getBasePrice() << endl;
-   cout << endl;
+   std::cout << "Name: " << theRing.getName() << std::endl;
+   std::cout << "Description: " << theRing.getDescription() << std::endl;
+   std::cout << "Weight: " << theRing.getWeight() << std::endl;
+   std::cout << "BasePrice: " << theRing.getBasePrice() << std::endl;
+   std::cout << std::endl;
 
-   cout << "Non-default constructor:\n";
+   std::cout << "Non-default constructor:\n";
    Product staff("Wizard Staff", "More than just a walking stick", 100, 10);
-   
-   cout << "\nAdvertising:\n";
+
+   std::cout << "\nAdvertising:\n";
    staff.displayAdvertising();
-   
-   cout << "\nInventory:\n";
+
+   std::cout << "\nInventory:\n";
    staff.displayInventory();
 
-   cout << "\nReceipt:\n";
+   std::cout << "\nReceipt:\n";
    staff.displayReceipt();
-   cout << endl;
+   std::cout << std::endl;
 
    ////////////////////////////////////
    // Order Class
    ////////////////////////////////////
-   cout << "*** ORDER ***\n";
-   cout << "Default constructor:\n";
+   std::cout << "*** ORDER ***\n";
+   std::cout << "Default constructor:\n";
    Order orderRing;
    orderRing.displayInformation();
-   cout << endl;
+   std::cout << std::endl;
 
-   cout << "Getters/Setters:\n";
+   std::cout << "Getters/Setters:\n";
    orderRing.setProduct(theRing);
    orderRing.setQuantity(1);
    orderRing.setCustomer(frodo);
 
-   cout << "Product:\n";
+   std::cout << "Product:\n";
    orderRing.getProduct().displayReceipt();
-   cout << "Quantity: " << orderRing.getQuantity() << endl;
-   cout << "Customer:\n";
+   std::cout << "Quantity: " << orderRing.getQuantity() << std::endl;
+   std::cout << "Customer:\n";
    orderRing.getCustomer().display();
-   cout << "Shipping Zip: " << orderRing.getShippingZip() << endl;
-   cout << "TotalPrice: " << orderRing.getTotalPrice() << endl;
-   cout << endl;
+   std::cout << "Shipping Zip: " << orderRing.getShippingZip() << std::endl;
+   std::cout << "TotalPrice: " << orderRing.getTotalPrice() << std::endl;
+   std::cout << std::endl;
 
-   cout << "Non-default constructor:\n";
+   std::cout << "Non-default constructor:\n";
    Order orderStaff(staff, 2, gandalf);
 
-   cout << "Display Shipping Label:\n";
+   std::cout << "Display Shipping Label:\n";
    orderStaff.displayShippingLabel();
 
-   cout << "\nDisplay Information:\n";
+   std::cout << "\nDisplay Information:\n";
    orderStaff.displayInformation();
 
    return 0;

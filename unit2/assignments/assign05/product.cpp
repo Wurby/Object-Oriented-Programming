@@ -9,11 +9,51 @@
 #include <iomanip>
 #include <iostream>
 
+Product::Product()
+{
+}
+Product::Product(std::string name, std::string description, double basePrice, double weight)
+{
+   this->name = name;
+   this->description = description;
+   this->basePrice = basePrice;
+   this->weight = weight;
+}
+
+void Product::setBasePrice(double price)
+{
+   this->basePrice = price;
+}
+void Product::setSalesTax(double price)
+{
+   this->taxCost = price;
+}
+void Product::setShippingCost(double price)
+{
+   this->shippingCost = price;
+}
+void Product::setTotalPrice(double price)
+{
+   this->totalPrice = price;
+}
+void Product::setName(std::string name)
+{
+   this->name = name;
+}
+void Product::setDescription(std::string description)
+{
+   this->description = description;
+}
+void Product::setWeight(double Weight)
+{
+   this->weight = Weight;
+}
+
 /***************************************************************
  * Name: 
  * Function: 
  ****************************************************************/
-void  Product::prompt()
+void Product::prompt()
 {
    std::string name;
    std::string description;
@@ -24,65 +64,64 @@ void  Product::prompt()
 
    std::cout << "Enter name: ";
    getline(std::cin, name);
-   this->name = name;
+   setName(name);
 
    std::cout << "Enter description: ";
    getline(std::cin, description);
-   this->description = description;
+   setDescription(description);
 
    std::cout << "Enter weight: ";
    std::cin >> weight;
-   this->weight = weight;
+   setWeight(weight);
 
-   Product::getPrice();
-   Product::getTotalPrice();
+   basePrice = getBasePrice();
+   totalPrice = getTotalPrice();
 }
 
 /***************************************************************
  * Name: 
  * Function: 
  ****************************************************************/
-void Product::getPrice()
+double Product::getBasePrice()
 {
-   bool check = false;
-   do
-   {
-      std::cout << "Enter price: ";
-      std::cin >> basePrice;
-      if (std::cin.fail())
-      {
-         std::cin.clear();
-         std::cin.ignore(256,'\n');
-         check = false;
-      }
-      else if (basePrice < 1)
-      {
-         check = false;
-      }
-      
-      else
-      {
-         check = true;
-      }
-      
-   }
-   while (!check);
-   this->basePrice = basePrice;
+   // bool check = false;
+   // double price = 0;
+   // do
+   // {
+   //    std::cout << "Enter price: ";
+   //    std::cin >> price;
+   //    if (std::cin.fail())
+   //    {
+   //       std::cin.clear();
+   //       std::cin.ignore(256, '\n');
+   //       check = false;
+   //    }
+   //    else if (price < 1)
+   //    {
+   //       check = false;
+   //    }
+   //    else
+   //    {
+   //       check = true;
+   //    }
+   // } while (!check);
+
+   return this->basePrice;
 }
 
 /***************************************************************
  * Name: 
  * Function: 
  ****************************************************************/
-void Product::getSalesTax()
+double Product::getSalesTax()
 {
-   this->taxCost = basePrice * .06;
+   return basePrice * .06;
 }
 /***************************************************************
  * Name: 
  * Function: 
  ****************************************************************/
-void Product::getShippingCost()
+double Product::getShippingCost()
 {
    int weightCounter = 0;
    double extraShippingCost = 0;
@@ -93,17 +132,17 @@ void Product::getShippingCost()
       extraShippingCost = weightCounter * 0.10;
       shippingCost += extraShippingCost;
    }
-   this->shippingCost = shippingCost;
+   return shippingCost;
 }
 /***************************************************************
  * Name: 
  * Function: 
  ****************************************************************/
-void Product::getTotalPrice()
+double Product::getTotalPrice()
 {
-   this->getSalesTax();
-   this->getShippingCost();
-   this->totalPrice = this->basePrice + this->shippingCost + this->taxCost;
+   this->taxCost = getSalesTax();
+   this->shippingCost = getShippingCost();
+   return this->basePrice + this->shippingCost + this->taxCost;
 }
 /***************************************************************
  * Name: 
@@ -125,7 +164,7 @@ void Product::displayAdvertising()
  * Name: 
  * Function: 
  ****************************************************************/
-void Product::displayInventoryLine()
+void Product::displayInventory()
 {
    // $14.49 - Finding Peace, Happiness, and Joy by Richard G. Scott - 1.5 lbs
 
@@ -155,10 +194,22 @@ void Product::displayReceipt()
    std::cout.setf(std::ios::fixed);
    std::cout.setf(std::ios::showpoint);
    std::cout.precision(2);
-   
+
    std::cout << "  Price:         $" << std::setw(8) << this->basePrice << std::endl;
    std::cout << "  Sales tax:     $" << std::setw(8) << this->taxCost << std::endl;
    std::cout << "  Shipping cost: $" << std::setw(8) << this->shippingCost << std::endl;
    std::cout << "  Total:         $" << std::setw(8) << this->totalPrice << std::endl;
+}
 
+std::string Product::getName()
+{
+   return this->name;
+}
+std::string Product::getDescription()
+{
+   return this->description;
+}
+double Product::getWeight()
+{
+   return this->weight;
 }

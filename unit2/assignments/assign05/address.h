@@ -1,28 +1,56 @@
 // File: address.h
+#include <string>
 
 #ifndef ADDRESS_H
 #define ADDRESS_H
 
-// Put your Address class here
+// Ready for testing.
 
-// Create a class for an Address that has the following private data members:
-// street : string
-// city : string
-// state : string
-// zip : string
-//
-// It should also contain the following public methods:
-// getStreet / setStreet
-// getCity / setCity
-// getState / setState
-// getZip / setZip
-// display - Displays the address in the format:
-//
-// street
-// city, state zip
-//
-// It should also have the following constructors:
-// Default - Set the street to "unknown", the zip to "00000", and the other data members to "".
-// Non-default - Accept 4 strings (street, city, state, zip) and set each of the values.
+class Address
+{
+ private:
+   std::string street;
+   std::string city;
+   std::string state;
+   std::string zip;
+
+ public:
+   Address()
+   {
+      street = "unknown";
+      city = "";
+      state = "";
+      zip = "00000";
+   }
+   Address(std::string street, std::string city, std::string state, std::string zip)
+   {
+      this->street = street;
+      this->city = city;
+      this->state = state;
+      this->zip = zip;
+   }
+   void setStreet(std::string street);
+   void setCity(std::string city);
+   void setState(std::string state);
+   void setZip(std::string zip);
+
+   std::string getStreet()
+   {
+      return this->street;
+   }
+   std::string getCity()
+   {
+      return this->city;
+   }
+   std::string getState()
+   {
+      return this->state;
+   }
+   std::string getZip()
+   {
+      return this->zip;
+   }
+   void display();
+};
 
 #endif

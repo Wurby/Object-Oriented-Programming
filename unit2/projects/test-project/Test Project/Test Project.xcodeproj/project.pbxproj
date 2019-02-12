@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		26C74820221220C900C9A53A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26C7481F221220C900C9A53A /* main.cpp */; };
 		26C748282212212400C9A53A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26C748272212212400C9A53A /* OpenGL.framework */; };
 		26C7482A2212213500C9A53A /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26C748292212213500C9A53A /* GLUT.framework */; };
+		26C748332212350700C9A53A /* uiDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26C7482B2212350700C9A53A /* uiDraw.cpp */; };
+		26C748342212350700C9A53A /* uiInteract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26C7482D2212350700C9A53A /* uiInteract.cpp */; };
+		26C748352212350700C9A53A /* uiTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26C7482E2212350700C9A53A /* uiTest.cpp */; };
+		26C748362212350700C9A53A /* point.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26C7482F2212350700C9A53A /* point.cpp */; };
+		26C748372212350700C9A53A /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = 26C748312212350700C9A53A /* makefile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,9 +30,16 @@
 
 /* Begin PBXFileReference section */
 		26C7481C221220C900C9A53A /* Test Project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Test Project"; sourceTree = BUILT_PRODUCTS_DIR; };
-		26C7481F221220C900C9A53A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		26C748272212212400C9A53A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		26C748292212213500C9A53A /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		26C7482B2212350700C9A53A /* uiDraw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = uiDraw.cpp; path = gltest/uiDraw.cpp; sourceTree = "<group>"; };
+		26C7482C2212350700C9A53A /* point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = point.h; path = gltest/point.h; sourceTree = "<group>"; };
+		26C7482D2212350700C9A53A /* uiInteract.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = uiInteract.cpp; path = gltest/uiInteract.cpp; sourceTree = "<group>"; };
+		26C7482E2212350700C9A53A /* uiTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = uiTest.cpp; path = gltest/uiTest.cpp; sourceTree = "<group>"; };
+		26C7482F2212350700C9A53A /* point.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = point.cpp; path = gltest/point.cpp; sourceTree = "<group>"; };
+		26C748302212350700C9A53A /* uiDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = uiDraw.h; path = gltest/uiDraw.h; sourceTree = "<group>"; };
+		26C748312212350700C9A53A /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = makefile; path = gltest/makefile; sourceTree = "<group>"; };
+		26C748322212350700C9A53A /* uiInteract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = uiInteract.h; path = gltest/uiInteract.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +75,14 @@
 		26C7481E221220C900C9A53A /* Test Project */ = {
 			isa = PBXGroup;
 			children = (
-				26C7481F221220C900C9A53A /* main.cpp */,
+				26C748312212350700C9A53A /* makefile */,
+				26C7482F2212350700C9A53A /* point.cpp */,
+				26C7482C2212350700C9A53A /* point.h */,
+				26C7482B2212350700C9A53A /* uiDraw.cpp */,
+				26C748302212350700C9A53A /* uiDraw.h */,
+				26C7482D2212350700C9A53A /* uiInteract.cpp */,
+				26C748322212350700C9A53A /* uiInteract.h */,
+				26C7482E2212350700C9A53A /* uiTest.cpp */,
 			);
 			path = "Test Project";
 			sourceTree = "<group>";
@@ -134,7 +152,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26C74820221220C900C9A53A /* main.cpp in Sources */,
+				26C748362212350700C9A53A /* point.cpp in Sources */,
+				26C748372212350700C9A53A /* makefile in Sources */,
+				26C748352212350700C9A53A /* uiTest.cpp in Sources */,
+				26C748332212350700C9A53A /* uiDraw.cpp in Sources */,
+				26C748342212350700C9A53A /* uiInteract.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

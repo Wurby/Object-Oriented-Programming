@@ -5,7 +5,38 @@
 
 #include "address.h"
 
-// put your Customer class here
+class Customer : public Address // Is this bad practice and should I have used Product::constructorName?
+{
+  public:
+    Customer()
+    {
+        name = "unspecified";
+        Address();
+    }
+    Customer(std::string name, Address address)
+    {
+        this->name = name;
+        this->address = address;
+    }
+
+  private:
+    std::string name;
+    Address address;
+
+  public:
+    std::string getName()
+    {
+        return this->name;
+    }
+    Address getAddress()
+    {
+        return this->address;
+    }
+    void setName(std::string name);
+    void setAddress(Address address);
+
+    void display();
+};
 
 // Create a class for a Customer that has the following private data members:
 // name : string

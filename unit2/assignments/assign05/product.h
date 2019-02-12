@@ -7,7 +7,6 @@
 #define PRODUCT_H
 #include <string>
 
-
 // Add the following to your Product class:
 // getName / setName
 // getDescription / setDescription
@@ -19,23 +18,36 @@
 
 class Product
 {
-   private:
-      std::string name;
-      std::string description;
-      double basePrice;
-      double taxCost;
-      double shippingCost;
-      double totalPrice;
-      double weight;
-      void getPrice();
-      void getSalesTax();
-      void getShippingCost();
-      void getTotalPrice();
-   public:
-      void prompt();
-      void displayAdvertising();
-      void displayInventoryLine();
-      void displayReceipt();
+ private:
+   std::string name;
+   std::string description;
+   double basePrice;
+   double taxCost;
+   double shippingCost;
+   double totalPrice;
+   double weight;
+
+ public:
+   Product();
+   Product(std::string name, std::string description, double basePrice, double weight);
+   void setBasePrice(double price);
+   void setSalesTax(double price);
+   void setShippingCost(double price);
+   void setTotalPrice(double price);
+   void setName(std::string name);
+   void setDescription(std::string description);
+   void setWeight(double weight);
+   void prompt();
+   double getBasePrice();
+   double getSalesTax();
+   double getShippingCost();
+   double getTotalPrice();
+   void displayAdvertising();
+   void displayInventory();
+   void displayReceipt();
+   std::string getName();
+   std::string getDescription();
+   double getWeight();
 };
 
 #endif
