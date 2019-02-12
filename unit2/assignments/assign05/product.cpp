@@ -48,6 +48,7 @@ void Product::getPrice()
    do
    {
       std::cout << "Enter price: ";
+      std::cin.clear();
       std::cin >> basePrice;
       if (std::cin.fail())
       {
