@@ -55,7 +55,6 @@ void Product::getPrice()
       }
       else if (std::cin.fail())
       {
-         std::cin.ignore();
          std::cin.clear();
          std::cin.ignore();
          check = false;
