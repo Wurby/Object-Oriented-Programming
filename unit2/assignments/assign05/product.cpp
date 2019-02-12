@@ -11,6 +11,9 @@
 
 Product::Product()
 {
+   this->name = "none";
+   this->description = "";
+   this->basePrice = 0;
 }
 Product::Product(std::string name, std::string description, double basePrice, double weight)
 {

@@ -9,9 +9,8 @@
 
 void Address::display()
 {
-    std::cout << std::endl;
     std::cout << this->street << std::endl;
-    std::cout << this->city << ", " << this->state << " " << this->zip;
+    std::cout << this->city << ", " << this->state << " " << this->zip << std::endl;
 }
 
 void Address::setState(std::string state)
