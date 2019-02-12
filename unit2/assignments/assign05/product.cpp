@@ -48,13 +48,11 @@ void Product::getPrice()
    do
    {
       std::cout << "Enter price: ";
-      std::cin.clear();
       std::cin >> basePrice;
       if (std::cin.fail())
       {
-         std::cin.ignore();
          std::cin.clear();
-         std::cin.ignore();
+         std::cin.ignore(256,'\n');
          check = false;
       }
       else if (basePrice < 1)
