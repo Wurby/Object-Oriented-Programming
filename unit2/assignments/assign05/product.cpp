@@ -49,12 +49,16 @@ void Product::getPrice()
    {
       std::cout << "Enter price: ";
       std::cin >> basePrice;
-      if (std::cin.fail())
+      if (basePrice < 1)
+      {
+         check = false;
+      }
+      else if (std::cin.fail())
       {
          std::cin.ignore();
          std::cin.clear();
          std::cin.ignore();
-         std::cout << "Invalid entry" << std::endl;
+         check = false;
       }
       else
       {
@@ -114,8 +118,8 @@ void Product::displayAdvertising()
    std::cout.setf(std::ios::fixed);
    std::cout.setf(std::ios::showpoint);
    std::cout.precision(2);
-   std::cout << this->name << " - " << this->basePrice << std::endl;
-   std::cout << this->description << std::endl;
+   std::cout << this->name << " - $" << this->basePrice << std::endl;
+   std::cout << "(" << this->description << ")" << std::endl;
 }
 /***************************************************************
  * Name: 
@@ -146,14 +150,15 @@ void Product::displayReceipt()
    //    Shipping cost: $    2.00
    //    Total:         $   17.36
 
+   // remove tab at beginning, add spacing?
    std::cout << this->name << std::endl;
    std::cout.setf(std::ios::fixed);
    std::cout.setf(std::ios::showpoint);
    std::cout.precision(2);
-   // std::setw(8);
-   std::cout << "\tPrice:         $" << std::setw(8) << this->basePrice << std::endl;
-   std::cout << "\tSales tax:     $" << std::setw(8) << this->taxCost << std::endl;
-   std::cout << "\tShipping cost: $" << std::setw(8) << this->shippingCost << std::endl;
-   std::cout << "\tTotal:         $" << std::setw(8) << this->totalPrice << std::endl;
+   
+   std::cout << "  Price:         $" << std::setw(8) << this->basePrice << std::endl;
+   std::cout << "  Sales tax:     $" << std::setw(8) << this->taxCost << std::endl;
+   std::cout << "  Shipping cost: $" << std::setw(8) << this->shippingCost << std::endl;
+   std::cout << "  Total:         $" << std::setw(8) << this->totalPrice << std::endl;
 
 }
