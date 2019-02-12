@@ -15,7 +15,7 @@ class Order : public Product, public Customer // Is this bad practice and should
         Product();
         Customer();
     }
-    Order(Product product, Customer customer, int quantity)
+    Order(Product product, int quantity, Customer customer)
     {
         this->product = product;
         this->quantity = quantity;
