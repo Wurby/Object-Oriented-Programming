@@ -135,6 +135,10 @@ double Product::getShippingCost()
       extraShippingCost = weightCounter * 0.10;
       shippingCost += extraShippingCost;
    }
+   if (this->weight == 0)
+   {
+      shippingCost = 0;
+   }
    return shippingCost;
 }
 /***************************************************************
@@ -143,8 +147,8 @@ double Product::getShippingCost()
  ****************************************************************/
 double Product::getTotalPrice()
 {
-   this->taxCost = getSalesTax();
-   this->shippingCost = getShippingCost();
+   // this->taxCost = getSalesTax();
+   // this->shippingCost = getShippingCost();
    return this->basePrice + this->shippingCost + this->taxCost;
 }
 /***************************************************************

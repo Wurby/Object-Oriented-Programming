@@ -5,7 +5,8 @@
 # Author:
 #     Joshua Pearson
 # Summary:
-#     Put your summary code here... 
+#     Does what Main says. (Provides a library for managing
+#     orders, customers, addresses and products)
 ###############################################################
 
 

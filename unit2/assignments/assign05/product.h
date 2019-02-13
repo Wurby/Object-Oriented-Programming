@@ -1,6 +1,6 @@
 /***************************************************************
  * File: product.h
- * Author: Joshua Pearsob
+ * Author: Joshua Pearson
  * Purpose: Contains the definition of the Product class
  ***************************************************************/
 #ifndef PRODUCT_H
