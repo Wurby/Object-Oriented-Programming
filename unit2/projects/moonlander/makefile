@@ -29,6 +29,8 @@ a.out: driver.o ground.o game.o uiInteract.o uiDraw.o point.o lander.o velocity.
 #    point.o       The position on the screen
 #    ground.o      Handles the ground / world
 #    game.o        Handles the game interaction
+#	 lander.o	   Handles the lander
+#	 velocity.o	   Handles the speed and momentum
 ###############################################################
 uiDraw.o: uiDraw.cpp uiDraw.h
 	g++ -c uiDraw.cpp
@@ -42,18 +44,13 @@ point.o: point.cpp point.h
 ground.o: ground.cpp ground.h
 	g++ -c ground.cpp
 
-game.o: game.h game.cpp uiDraw.h uiInteract.h point.h ground.h
+game.o: game.h game.cpp uiDraw.h uiInteract.h point.h ground.h lander.h
 	g++ -c game.cpp
 
 driver.o: driver.cpp game.h uiInteract.h
 	g++ -c driver.cpp
 
-#######################################################################
-# ADD YOUR ADDITIONAL RULES HERE!
-#
-# Then, don't forget to add them to the dependecy list for a.out above.
-#######################################################################
-lander.o: lander.h lander.cpp 
+lander.o: lander.h lander.cpp velocity.h uiDraw.h point.h
 	g++ -c lander.cpp
 
 velocity.o: velocity.h velocity.cpp

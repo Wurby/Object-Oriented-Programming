@@ -6,17 +6,21 @@
  *************************************************************/
 
 #ifndef VELOCITY_H
+#define VELOCITY_H
 
 class Velocity
 {
-  private:
-  public:
-    Velocity();
-    Velocity(float, float);
-    float getDx();
-    float getDy();
-    void setDx(float);
-    void setDy(float);
+private:
+  float dx;
+  float dy;
+
+public:
+  Velocity();
+  Velocity(const float &, const float &);
+  float getDx() const { return dx; }
+  float getDy() const { return dy; }
+  void setDx(const float &) {}
+  void setDy(const float &) {}
 };
 
 #endif

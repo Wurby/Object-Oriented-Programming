@@ -6,3 +6,10 @@
  *************************************************************/
 
 #include "velocity.h"
+
+Velocity::Velocity()
+{
+}
+Velocity::Velocity(const float &, const float &)
+{
+}
