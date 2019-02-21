@@ -54,7 +54,7 @@ lander.o: lander.h lander.cpp velocity.h uiDraw.h point.h
 	g++ -c lander.cpp
 
 velocity.o: velocity.h velocity.cpp
-	g++ velocity.cpp
+	g++ -c velocity.cpp
 
 ###############################################################
 # General rules
