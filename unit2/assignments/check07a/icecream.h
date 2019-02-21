@@ -8,18 +8,19 @@
 
 class IceCream
 {
-private:
+ private:
    std::string flavor;
    float price;
 
-public:
+ public:
    IceCream();
    IceCream(std::string flavor, float price);
+
+   static float salesTax;
 
    float getTotalPrice() const;
    void prompt();
    void display() const;
 };
-
 
 #endif

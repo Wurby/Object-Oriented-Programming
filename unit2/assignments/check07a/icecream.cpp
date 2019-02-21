@@ -8,6 +8,8 @@
 #include <iomanip>
 using namespace std;
 
+float IceCream::salesTax = 0.06;
+
 /***********************************
  * Constructors
  ***********************************/
@@ -30,8 +32,10 @@ IceCream::IceCream(string flavor, float price)
 float IceCream::getTotalPrice() const
 {
    // TODO: Change this to include sales tax
+   float newPrice = 0;
+   newPrice = price * salesTax + price;
 
-   return price;
+   return newPrice;
 }
 
 /**********************************************************************
@@ -63,4 +67,3 @@ void IceCream::display() const
    // automatically updated when sales tax is taken into accout.
    cout << "$" << getTotalPrice() << " - " << flavor << endl;
 }
-
