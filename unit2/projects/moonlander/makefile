@@ -7,9 +7,11 @@
 # Summary:
 #     A moonlander game.
 # Above and Beyond
-#     When you submit your final project (not for milestones),
-#     list anything here that you did to go above and beyond
-#     the base requirements for your project.
+#     I unfortunately ran out of time and couldn't even finish
+#	  the base project. Didn't do more than an hour of work
+#	  this week. Hopefully you check here first. There are no
+# 	  changes from last week. Hopefully I save you a little
+#	  time. 
 ###############################################################
 
 

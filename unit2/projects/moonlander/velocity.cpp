@@ -2,7 +2,7 @@
  * File: velocity.cpp
  * Author: Joshua Pearson
  *
- * Summary: 
+ * Summary: Doesn't do anything... Yet.
  *************************************************************/
 
 #include "velocity.h"

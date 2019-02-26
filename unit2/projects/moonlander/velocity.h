@@ -2,7 +2,7 @@
  * File: velocity.h
  * Author: Joshua Pearson
  *
- * Description: 
+ * Description: Velocity class
  *************************************************************/
 
 #ifndef VELOCITY_H

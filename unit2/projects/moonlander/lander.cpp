@@ -2,7 +2,7 @@
  * File: lander.cpp
  * Author: Joshua Pearson
  *
- * Summary: 
+ * Summary: Doesn't do anything... Yet.
  *************************************************************/
 
 #include "lander.h"

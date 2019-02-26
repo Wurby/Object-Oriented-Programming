@@ -2,7 +2,7 @@
  * File: lander.h
  * Author: Joshua Pearson
  *
- * Description: 
+ * Description: The Lander Class.
  *************************************************************/
 #ifndef LANDER_H
 #define LANDER_H
