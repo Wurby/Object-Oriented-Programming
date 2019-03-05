@@ -10,17 +10,17 @@
 
 class Velocity
 {
-private:
-  float dx;
-  float dy;
+ private:
+   float dx;
+   float dy;
 
-public:
-  Velocity();
-  Velocity(const float &, const float &);
-  float getDx() const { return dx; }
-  float getDy() const { return dy; }
-  void setDx(const float &) {}
-  void setDy(const float &) {}
+ public:
+   Velocity();
+   Velocity(float, float);
+   float getDx() const { return dx; }
+   float getDy() const { return dy; }
+   void setDx(float) {}
+   void setDy(float) {}
 };
 
 #endif

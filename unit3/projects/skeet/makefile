@@ -19,7 +19,8 @@ LFLAGS = -lglut -lGLU -lGL
 # Build the main game
 ###############################################################
 a.out: driver.o game.o uiInteract.o uiDraw.o point.o rifle.o 
-	g++ driver.o game.o uiInteract.o uiDraw.o point.o rifle.o $(LFLAGS)
+	g++ driver.o game.o uiInteract.o uiDraw.o point.o rifle.o velocity.o
+	flyingObject.o bird.o $(LFLAGS)
 
 ###############################################################
 # Individual files
@@ -29,6 +30,12 @@ a.out: driver.o game.o uiInteract.o uiDraw.o point.o rifle.o
 #    ground.o      Handles the ground / world
 #    game.o        Handles the game interaction
 ###############################################################
+flyingObject.o: flyingObject.cpp flyingObject.h point.h velocity.h
+	g++ flyingObject.cpp
+
+velocity.o: velocity.cpp velocity.h
+	g++ -c velocity.cpp
+
 uiDraw.o: uiDraw.cpp uiDraw.h point.h
 	g++ -c uiDraw.cpp
 
@@ -47,11 +54,6 @@ driver.o: game.h uiInteract.h driver.cpp
 rifle.o: rifle.h point.h uiDraw.h rifle.cpp
 	g++ -c rifle.cpp
 
-#######################################################################
-# ADD YOUR ADDITIONAL RULES HERE!
-#
-# Then, don't forget to add them to the dependecy list for a.out above.
-#######################################################################
 
 
 ###############################################################

@@ -1,15 +1,9 @@
 /*************************************************************
- * File: velocity.cpp
+ * File: flyingobject.cpp
  * Author: Joshua Pearson
  *
  * Summary: Doesn't do anything... Yet.
  *************************************************************/
 
-#include "velocity.h"
+#include "flyingObject.h"
 
-Velocity::Velocity()
-{
-}
-Velocity::Velocity(float, float)
-{
-}

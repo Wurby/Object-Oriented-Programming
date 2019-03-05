@@ -1,15 +1,14 @@
 /*************************************************************
- * File: velocity.cpp
+ * File: flyingobject.h
  * Author: Joshua Pearson
  *
- * Summary: Doesn't do anything... Yet.
+ * Description: flying object extended class
  *************************************************************/
 
-#include "velocity.h"
+#include "flyingObject.h"
 
-Velocity::Velocity()
+class Bird : public FlyingObject
 {
-}
-Velocity::Velocity(float, float)
-{
-}
+ public:
+ private:
+};
