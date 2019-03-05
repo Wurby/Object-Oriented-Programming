@@ -13,9 +13,13 @@
 
 class FlyingObject
 {
- private:
- public:
-   Point position;
-   Velocity velocity;
+private:
+public:
+  Point position;
+  Velocity velocity;
+  bool isAlive();
+  void kill();
+  void advance();
+  Point getPoint();
 };
 #endif

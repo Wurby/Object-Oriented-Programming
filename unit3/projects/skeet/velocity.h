@@ -8,6 +8,10 @@
 #ifndef VELOCITY_H
 #define VELOCITY_H
 
+/***************
+ * Class: Velocity
+ * this class is still just a shell of what it needs to be.
+ ***************/
 class Velocity
 {
  private:

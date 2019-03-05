@@ -1,5 +1,5 @@
 /*************************************************************
- * File: flyingobject.h
+ * File: bullet.h
  * Author: Joshua Pearson
  *
  * Description: flying object extended class
@@ -7,8 +7,11 @@
 
 #include "flyingObject.h"
 
-class Bird : public FlyingObject
+class Bullet : public FlyingObject
 {
- public:
- private:
+  public:
+    void draw();
+    void fire(Point point, float angle);
+
+  private:
 };

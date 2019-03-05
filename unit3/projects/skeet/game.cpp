@@ -21,35 +21,32 @@ using namespace std;
 
 #define OFF_SCREEN_BORDER_AMOUNT 5
 
-
 /***************************************
  * GAME CONSTRUCTOR
  ***************************************/
-Game :: Game(Point tl, Point br)
- : topLeft(tl), bottomRight(br), rifle(br)
+Game ::Game(Point tl, Point br)
+    : topLeft(tl), bottomRight(br), rifle(br)
 {
    // Set up the initial conditions of the game
    score = 0;
 
    // TODO: Set your bird pointer to a good initial value (e.g., NULL)
-
 }
 
 /****************************************
  * GAME DESTRUCTOR
  ****************************************/
-Game :: ~Game()
+Game ::~Game()
 {
    // TODO: Check to see if there is currently a bird allocated
    //       and if so, delete it.
-
 }
 
 /***************************************
  * GAME :: ADVANCE
  * advance the game one unit of time
  ***************************************/
-void Game :: advance()
+void Game ::advance()
 {
    advanceBullets();
    advanceBird();
@@ -62,7 +59,7 @@ void Game :: advance()
  * GAME :: ADVANCE BULLETS
  * Go through each bullet and advance it.
  ***************************************/
-void Game :: advanceBullets()
+void Game ::advanceBullets()
 {
    // Move each of the bullets forward if it is alive
    for (int i = 0; i < bullets.size(); i++)
@@ -71,13 +68,12 @@ void Game :: advanceBullets()
       {
          // this bullet is alive, so tell it to move forward
          bullets[i].advance();
-         
+
          if (!isOnScreen(bullets[i].getPoint()))
          {
             // the bullet has left the screen
             bullets[i].kill();
          }
-         
       }
    }
 }
@@ -89,12 +85,12 @@ void Game :: advanceBullets()
  * 2. If there is a bird, and it's alive, advance it
  * 3. Check if the bird has gone of the screen, and if so, "kill" it
  **************************************************************************/
-void Game :: advanceBird()
+void Game ::advanceBird()
 {
    if (bird == NULL)
    {
       // there is no bird right now, possibly create one
-      
+
       // "resurrect" it will some random chance
       if (random(0, 30) == 0)
       {
@@ -109,7 +105,7 @@ void Game :: advanceBird()
       {
          // move it forward
          bird->advance();
-         
+
          // check if the bird has gone off the screen
          if (!isOnScreen(bird->getPoint()))
          {
@@ -118,20 +114,18 @@ void Game :: advanceBird()
          }
       }
    }
-   
 }
 
 /**************************************************************************
  * GAME :: CREATE BIRD
  * Create a bird of a random type according to the rules of the game.
  **************************************************************************/
-Bird* Game :: createBird()
+Bird *Game ::createBird()
 {
-   Bird* newBird = NULL;
+   Bird *newBird = NULL;
 
    // TODO: Fill this in
-   
-   
+
    return newBird;
 }
 
@@ -139,19 +133,16 @@ Bird* Game :: createBird()
  * GAME :: IS ON SCREEN
  * Determines if a given point is on the screen.
  **************************************************************************/
-bool Game :: isOnScreen(const Point & point)
+bool Game ::isOnScreen(const Point &point)
 {
-   return (point.getX() >= topLeft.getX() - OFF_SCREEN_BORDER_AMOUNT
-      && point.getX() <= bottomRight.getX() + OFF_SCREEN_BORDER_AMOUNT
-      && point.getY() >= bottomRight.getY() - OFF_SCREEN_BORDER_AMOUNT
-      && point.getY() <= topLeft.getY() + OFF_SCREEN_BORDER_AMOUNT);
+   return (point.getX() >= topLeft.getX() - OFF_SCREEN_BORDER_AMOUNT && point.getX() <= bottomRight.getX() + OFF_SCREEN_BORDER_AMOUNT && point.getY() >= bottomRight.getY() - OFF_SCREEN_BORDER_AMOUNT && point.getY() <= topLeft.getY() + OFF_SCREEN_BORDER_AMOUNT);
 }
 
 /**************************************************************************
  * GAME :: HANDLE COLLISIONS
  * Check for a collision between a bird and a bullet.
  **************************************************************************/
-void Game :: handleCollisions()
+void Game ::handleCollisions()
 {
    // now check for a hit (if it is close enough to any live bullets)
    for (int i = 0; i < bullets.size(); i++)
@@ -165,21 +156,20 @@ void Game :: handleCollisions()
          {
             // BTW, this logic could be more sophisiticated, but this will
             // get the job done for now...
-            if (fabs(bullets[i].getPoint().getX() - bird->getPoint().getX()) < CLOSE_ENOUGH
-                && fabs(bullets[i].getPoint().getY() - bird->getPoint().getY()) < CLOSE_ENOUGH)
+            if (fabs(bullets[i].getPoint().getX() - bird->getPoint().getX()) < CLOSE_ENOUGH && fabs(bullets[i].getPoint().getY() - bird->getPoint().getY()) < CLOSE_ENOUGH)
             {
                //we have a hit!
-               
+
                // hit the bird
                int points = bird->hit();
                score += points;
-               
+
                // the bullet is dead as well
                bullets[i].kill();
             }
          }
       } // if bullet is alive
-      
+
    } // for bullets
 }
 
@@ -187,18 +177,16 @@ void Game :: handleCollisions()
  * GAME :: CLEAN UP ZOMBIES
  * Remove any dead objects (take bullets out of the list, deallocate bird)
  **************************************************************************/
-void Game :: cleanUpZombies()
+void Game ::cleanUpZombies()
 {
    // check for dead bird
    if (bird != NULL && !bird->isAlive())
    {
       // the bird is dead, but the memory is not freed up yet
-      
+
       // TODO: Clean up the memory used by the bird
-   
-   
    }
-   
+
    // Look for dead bullets
    vector<Bullet>::iterator bulletIt = bullets.begin();
    while (bulletIt != bullets.end())
@@ -207,12 +195,11 @@ void Game :: cleanUpZombies()
       // Asteroids Hint:
       // If we had a list of pointers, we would need this line instead:
       //Bullet* pBullet = *bulletIt;
-      
+
       if (!bullet.isAlive())
       {
          // If we had a list of pointers, we would need to delete the memory here...
-         
-         
+
          // remove from list and advance
          bulletIt = bullets.erase(bulletIt);
       }
@@ -221,32 +208,31 @@ void Game :: cleanUpZombies()
          bulletIt++; // advance
       }
    }
-   
 }
 
 /***************************************
  * GAME :: HANDLE INPUT
  * accept input from the user
  ***************************************/
-void Game :: handleInput(const Interface & ui)
+void Game ::handleInput(const Interface &ui)
 {
    // Change the direction of the rifle
    if (ui.isLeft())
    {
       rifle.moveLeft();
    }
-   
+
    if (ui.isRight())
    {
       rifle.moveRight();
    }
-   
+
    // Check for "Spacebar
    if (ui.isSpace())
    {
       Bullet newBullet;
       newBullet.fire(rifle.getPoint(), rifle.getAngle());
-      
+
       bullets.push_back(newBullet);
    }
 }
@@ -255,18 +241,16 @@ void Game :: handleInput(const Interface & ui)
  * GAME :: DRAW
  * Draw everything on the screen
  *********************************************/
-void Game :: draw(const Interface & ui)
+void Game ::draw(const Interface &ui)
 {
    // draw the bird
 
    // TODO: Check if you have a valid bird and if it's alive
    // then call it's draw method
-   
-  
 
    // draw the rifle
    rifle.draw();
-   
+
    // draw the bullets, if they are alive
    for (int i = 0; i < bullets.size(); i++)
    {
@@ -275,13 +259,11 @@ void Game :: draw(const Interface & ui)
          bullets[i].draw();
       }
    }
-   
+
    // Put the score on the screen
    Point scoreLocation;
    scoreLocation.setX(topLeft.getX() + 5);
    scoreLocation.setY(topLeft.getY() - 5);
-   
+
    drawNumber(scoreLocation, score);
-
 }
-

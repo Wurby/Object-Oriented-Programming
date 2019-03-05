@@ -21,12 +21,12 @@
 #include "point.h"
 #include "velocity.h"
 #include "rifle.h"
+#include "bullet.h"
+#include "birds.h"
 
 // TODO: include your bullet and bird classes
 
-
 #define CLOSE_ENOUGH 15
-
 
 /*****************************************
  * GAME
@@ -34,55 +34,54 @@
  *****************************************/
 class Game
 {
-public:
+ public:
    /*********************************************
     * Constructor
     * Initializes the game
     *********************************************/
    Game(Point tl, Point br);
    ~Game();
-   
+
    /*********************************************
     * Function: handleInput
     * Description: Takes actions according to whatever
     *  keys the user has pressed.
     *********************************************/
-   void handleInput(const Interface & ui);
-   
+   void handleInput(const Interface &ui);
+
    /*********************************************
     * Function: advance
     * Description: Move everything forward one
     *  step in time.
     *********************************************/
    void advance();
-   
+
    /*********************************************
     * Function: draw
     * Description: draws everything for the game.
     *********************************************/
-   void draw(const Interface & ui);
-   
-private:
+   void draw(const Interface &ui);
+
+ private:
    // The coordinates of the screen
    Point topLeft;
    Point bottomRight;
-   
+
    int score;
-   
+
    Rifle rifle;
    std::vector<Bullet> bullets;
-   
-   // TODO: declare your bird here (e.g., "Bird * bird;")
 
+   // TODO: declare your bird here (e.g., "Bird * bird;")
 
    /*************************************************
     * Private methods to help with the game logic.
     *************************************************/
-   bool isOnScreen(const Point & point);
+   bool isOnScreen(const Point &point);
    void advanceBullets();
    void advanceBird();
-   Bird* createBird();
-   
+   Bird *createBird();
+
    void handleCollisions();
    void cleanUpZombies();
 };

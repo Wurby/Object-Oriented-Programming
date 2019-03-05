@@ -44,7 +44,7 @@ LFLAGS = -lglut -lGLU -lGL
 ###############################################################
 a.out: driver.o game.o uiInteract.o uiDraw.o point.o rifle.o 
 	g++ driver.o game.o uiInteract.o uiDraw.o point.o rifle.o velocity.o
-	flyingObject.o bird.o $(LFLAGS)
+	flyingObject.o bird.o bullet.o $(LFLAGS)
 
 ###############################################################
 # Individual files
@@ -54,8 +54,14 @@ a.out: driver.o game.o uiInteract.o uiDraw.o point.o rifle.o
 #    ground.o      Handles the ground / world
 #    game.o        Handles the game interaction
 ###############################################################
+bullet.o: flyingObject.h bullet.cpp bullet.h
+	g++ -c bullet.cpp
+
+birds.o: flyingObject.h birds.h birds.cpp
+	g++ -c birds.cpp
+
 flyingObject.o: flyingObject.cpp flyingObject.h point.h velocity.h
-	g++ flyingObject.cpp
+	g++ -c flyingObject.cpp
 
 velocity.o: velocity.cpp velocity.h
 	g++ -c velocity.cpp
