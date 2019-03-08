@@ -32,7 +32,7 @@ class Car
       this->name = str;
    }
 
-   virtual string getDoorSpecs() const
+   virtual string getDoorSpecs()
    {
       return "Unknown doors";
    }
@@ -46,7 +46,7 @@ class Civic : public Car
       name = "Civic";
    }
 
-   virtual string getDoorSpecs() const
+   virtual string getDoorSpecs()
    {
       return "4 doors";
    }
@@ -60,7 +60,7 @@ class Odyssey : public Car
       name = "Odyssey";
    }
 
-   virtual string getDoorSpecs() const
+   virtual string getDoorSpecs()
    {
       return "2 front doors, 2 sliding doors, 1 tail gate";
    }
@@ -74,7 +74,7 @@ class Ferrari : public Car
       name = "Ferrari";
    }
 
-   virtual string getDoorSpecs() const
+   virtual string getDoorSpecs()
    {
       return "2 butterfly doors";
    }
