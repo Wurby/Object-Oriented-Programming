@@ -7,9 +7,11 @@
 
 #include "velocity.h"
 
-Velocity::Velocity()
+Velocity::Velocity() : dx(0.0), dy(0.0)
+{}
+
+Velocity::Velocity(const float & dx, const float & dy)
 {
-}
-Velocity::Velocity(float, float)
-{
+    this->dx = dx;
+    this->dy = dy;
 }

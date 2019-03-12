@@ -10,16 +10,46 @@
 
 #include "point.h"
 #include "velocity.h"
+#include "uiDraw.h"
 
 class FlyingObject
 {
-private:
-public:
+protected:
   Point position;
   Velocity velocity;
-  bool isAlive();
+  bool alive;
+    
+public:
+    
+ 
   void kill();
   void advance();
-  Point getPoint();
+  virtual void draw() = 0;
+  Point getPoint() const
+    {
+        return position;
+    }
+    Velocity getVelocity() const
+    {
+        return velocity;
+    }
+    bool isAlive() const
+    {
+        return alive;
+    }
+    
+    //setters
+    void setPoint(const Point & point)
+    {
+        position = point;
+    }
+    void setVelocity(const Velocity & velocity)
+    {
+        this->velocity = velocity;
+    }
+    void setAlive(const bool & alive)
+    {
+        this->alive = alive;
+    }
 };
 #endif

@@ -15,6 +15,9 @@
 #include "uiDraw.h"
 #include "uiInteract.h"
 #include "point.h"
+#include "standardBird.h"
+#include "toughBird.h"
+#include "sacredBird.h"
 
 #include <vector>
 using namespace std;
@@ -31,6 +34,7 @@ Game ::Game(Point tl, Point br)
    score = 0;
 
    // TODO: Set your bird pointer to a good initial value (e.g., NULL)
+    bird = NULL;
 }
 
 /****************************************
@@ -40,6 +44,11 @@ Game ::~Game()
 {
    // TODO: Check to see if there is currently a bird allocated
    //       and if so, delete it.
+    if (bird != NULL)
+    {
+        delete bird;
+        bird = NULL;
+    }
 }
 
 /***************************************
@@ -90,7 +99,7 @@ void Game ::advanceBird()
    if (bird == NULL)
    {
       // there is no bird right now, possibly create one
-
+       
       // "resurrect" it will some random chance
       if (random(0, 30) == 0)
       {
@@ -125,7 +134,24 @@ Bird *Game ::createBird()
    Bird *newBird = NULL;
 
    // TODO: Fill this in
-
+    int randomInt = random(2,5);
+    Point randomPoint = new Point(random(0,2), random(0,100));
+    // Create a tempority random Point randomPoint
+    
+    //newBird = new Bird();
+    switch (randomInt) {
+        case 3:
+            newBird = new standardBird(randomPoint);
+            break;
+        case 4:
+            newBird = new toughBird(randomPoint);
+            break;
+        default:
+            newBird = new sacredBird(randomPoint);
+            break;
+    }
+    
+    
    return newBird;
 }
 
@@ -185,6 +211,8 @@ void Game ::cleanUpZombies()
       // the bird is dead, but the memory is not freed up yet
 
       // TODO: Clean up the memory used by the bird
+       delete bird;
+       bird = NULL;
    }
 
    // Look for dead bullets
@@ -247,7 +275,10 @@ void Game ::draw(const Interface &ui)
 
    // TODO: Check if you have a valid bird and if it's alive
    // then call it's draw method
-
+    if (bird != NULL && !bird->isAlive())
+    {
+        bird->draw();
+    }
    // draw the rifle
    rifle.draw();
 

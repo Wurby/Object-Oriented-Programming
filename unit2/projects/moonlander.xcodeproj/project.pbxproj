@@ -1,0 +1,371 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		26D0C975221E2B8D00DFDB28 /* uiDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26D0C95E221E2B8C00DFDB28 /* uiDraw.cpp */; };
+		26D0C976221E2B8D00DFDB28 /* uiInteract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26D0C95F221E2B8C00DFDB28 /* uiInteract.cpp */; };
+		26D0C977221E2B8D00DFDB28 /* ground.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D0C960221E2B8C00DFDB28 /* ground.o */; };
+		26D0C978221E2B8D00DFDB28 /* driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26D0C961221E2B8C00DFDB28 /* driver.cpp */; };
+		26D0C979221E2B8D00DFDB28 /* game.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D0C962221E2B8C00DFDB28 /* game.o */; };
+		26D0C97A221E2B8D00DFDB28 /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = 26D0C963221E2B8C00DFDB28 /* makefile */; };
+		26D0C97B221E2B8D00DFDB28 /* uiDraw.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D0C965221E2B8C00DFDB28 /* uiDraw.o */; };
+		26D0C97C221E2B8D00DFDB28 /* driver.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D0C966221E2B8C00DFDB28 /* driver.o */; };
+		26D0C97D221E2B8D00DFDB28 /* velocity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26D0C967221E2B8C00DFDB28 /* velocity.cpp */; };
+		26D0C97E221E2B8D00DFDB28 /* lander.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D0C969221E2B8C00DFDB28 /* lander.o */; };
+		26D0C97F221E2B8D00DFDB28 /* uiInteract.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D0C96C221E2B8C00DFDB28 /* uiInteract.o */; };
+		26D0C980221E2B8D00DFDB28 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26D0C96D221E2B8C00DFDB28 /* game.cpp */; };
+		26D0C981221E2B8D00DFDB28 /* ground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26D0C96E221E2B8C00DFDB28 /* ground.cpp */; };
+		26D0C982221E2B8D00DFDB28 /* point.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D0C971221E2B8C00DFDB28 /* point.o */; };
+		26D0C983221E2B8D00DFDB28 /* point.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26D0C973221E2B8C00DFDB28 /* point.cpp */; };
+		26D0C984221E2B8D00DFDB28 /* lander.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26D0C974221E2B8D00DFDB28 /* lander.cpp */; };
+		26D0C987221E2C0300DFDB28 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D0C986221E2C0300DFDB28 /* OpenGL.framework */; };
+		26D0C989221E2C1400DFDB28 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D0C988221E2C1400DFDB28 /* GLUT.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		262855FB221E2480001D73E6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		262855FD221E2480001D73E6 /* moonlander */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = moonlander; sourceTree = BUILT_PRODUCTS_DIR; };
+		26D0C95C221E2B8C00DFDB28 /* uiDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiDraw.h; sourceTree = "<group>"; };
+		26D0C95D221E2B8C00DFDB28 /* makefile~ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "makefile~"; sourceTree = "<group>"; };
+		26D0C95E221E2B8C00DFDB28 /* uiDraw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = uiDraw.cpp; sourceTree = "<group>"; };
+		26D0C95F221E2B8C00DFDB28 /* uiInteract.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = uiInteract.cpp; sourceTree = "<group>"; };
+		26D0C960221E2B8C00DFDB28 /* ground.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = ground.o; sourceTree = "<group>"; };
+		26D0C961221E2B8C00DFDB28 /* driver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = driver.cpp; sourceTree = "<group>"; };
+		26D0C962221E2B8C00DFDB28 /* game.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = game.o; sourceTree = "<group>"; };
+		26D0C963221E2B8C00DFDB28 /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
+		26D0C964221E2B8C00DFDB28 /* game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
+		26D0C965221E2B8C00DFDB28 /* uiDraw.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = uiDraw.o; sourceTree = "<group>"; };
+		26D0C966221E2B8C00DFDB28 /* driver.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = driver.o; sourceTree = "<group>"; };
+		26D0C967221E2B8C00DFDB28 /* velocity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = velocity.cpp; sourceTree = "<group>"; };
+		26D0C969221E2B8C00DFDB28 /* lander.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = lander.o; sourceTree = "<group>"; };
+		26D0C96A221E2B8C00DFDB28 /* ground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ground.h; sourceTree = "<group>"; };
+		26D0C96B221E2B8C00DFDB28 /* lander.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lander.h; sourceTree = "<group>"; };
+		26D0C96C221E2B8C00DFDB28 /* uiInteract.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = uiInteract.o; sourceTree = "<group>"; };
+		26D0C96D221E2B8C00DFDB28 /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
+		26D0C96E221E2B8C00DFDB28 /* ground.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ground.cpp; sourceTree = "<group>"; };
+		26D0C96F221E2B8C00DFDB28 /* velocity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = velocity.h; sourceTree = "<group>"; };
+		26D0C970221E2B8C00DFDB28 /* uiInteract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiInteract.h; sourceTree = "<group>"; };
+		26D0C971221E2B8C00DFDB28 /* point.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = point.o; sourceTree = "<group>"; };
+		26D0C972221E2B8C00DFDB28 /* point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point.h; sourceTree = "<group>"; };
+		26D0C973221E2B8C00DFDB28 /* point.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = point.cpp; sourceTree = "<group>"; };
+		26D0C974221E2B8D00DFDB28 /* lander.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lander.cpp; sourceTree = "<group>"; };
+		26D0C986221E2C0300DFDB28 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		26D0C988221E2C1400DFDB28 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		262855FA221E2480001D73E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26D0C989221E2C1400DFDB28 /* GLUT.framework in Frameworks */,
+				26D0C987221E2C0300DFDB28 /* OpenGL.framework in Frameworks */,
+				26D0C977221E2B8D00DFDB28 /* ground.o in Frameworks */,
+				26D0C97C221E2B8D00DFDB28 /* driver.o in Frameworks */,
+				26D0C97E221E2B8D00DFDB28 /* lander.o in Frameworks */,
+				26D0C97B221E2B8D00DFDB28 /* uiDraw.o in Frameworks */,
+				26D0C982221E2B8D00DFDB28 /* point.o in Frameworks */,
+				26D0C979221E2B8D00DFDB28 /* game.o in Frameworks */,
+				26D0C97F221E2B8D00DFDB28 /* uiInteract.o in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		262855F4221E2480001D73E6 = {
+			isa = PBXGroup;
+			children = (
+				262855FF221E2480001D73E6 /* moonlander */,
+				262855FE221E2480001D73E6 /* Products */,
+				26D0C985221E2C0300DFDB28 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		262855FE221E2480001D73E6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				262855FD221E2480001D73E6 /* moonlander */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		262855FF221E2480001D73E6 /* moonlander */ = {
+			isa = PBXGroup;
+			children = (
+				26D0C961221E2B8C00DFDB28 /* driver.cpp */,
+				26D0C966221E2B8C00DFDB28 /* driver.o */,
+				26D0C96D221E2B8C00DFDB28 /* game.cpp */,
+				26D0C964221E2B8C00DFDB28 /* game.h */,
+				26D0C962221E2B8C00DFDB28 /* game.o */,
+				26D0C96E221E2B8C00DFDB28 /* ground.cpp */,
+				26D0C96A221E2B8C00DFDB28 /* ground.h */,
+				26D0C960221E2B8C00DFDB28 /* ground.o */,
+				26D0C974221E2B8D00DFDB28 /* lander.cpp */,
+				26D0C96B221E2B8C00DFDB28 /* lander.h */,
+				26D0C969221E2B8C00DFDB28 /* lander.o */,
+				26D0C963221E2B8C00DFDB28 /* makefile */,
+				26D0C95D221E2B8C00DFDB28 /* makefile~ */,
+				26D0C973221E2B8C00DFDB28 /* point.cpp */,
+				26D0C972221E2B8C00DFDB28 /* point.h */,
+				26D0C971221E2B8C00DFDB28 /* point.o */,
+				26D0C95E221E2B8C00DFDB28 /* uiDraw.cpp */,
+				26D0C95C221E2B8C00DFDB28 /* uiDraw.h */,
+				26D0C965221E2B8C00DFDB28 /* uiDraw.o */,
+				26D0C95F221E2B8C00DFDB28 /* uiInteract.cpp */,
+				26D0C970221E2B8C00DFDB28 /* uiInteract.h */,
+				26D0C96C221E2B8C00DFDB28 /* uiInteract.o */,
+				26D0C967221E2B8C00DFDB28 /* velocity.cpp */,
+				26D0C96F221E2B8C00DFDB28 /* velocity.h */,
+			);
+			path = moonlander;
+			sourceTree = "<group>";
+		};
+		26D0C985221E2C0300DFDB28 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				26D0C988221E2C1400DFDB28 /* GLUT.framework */,
+				26D0C986221E2C0300DFDB28 /* OpenGL.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		262855FC221E2480001D73E6 /* moonlander */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26285604221E2480001D73E6 /* Build configuration list for PBXNativeTarget "moonlander" */;
+			buildPhases = (
+				262855F9221E2480001D73E6 /* Sources */,
+				262855FA221E2480001D73E6 /* Frameworks */,
+				262855FB221E2480001D73E6 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = moonlander;
+			productName = moonlander;
+			productReference = 262855FD221E2480001D73E6 /* moonlander */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		262855F5221E2480001D73E6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Joshua Pearson";
+				TargetAttributes = {
+					262855FC221E2480001D73E6 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 262855F8221E2480001D73E6 /* Build configuration list for PBXProject "moonlander" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 262855F4221E2480001D73E6;
+			productRefGroup = 262855FE221E2480001D73E6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				262855FC221E2480001D73E6 /* moonlander */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		262855F9221E2480001D73E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26D0C975221E2B8D00DFDB28 /* uiDraw.cpp in Sources */,
+				26D0C981221E2B8D00DFDB28 /* ground.cpp in Sources */,
+				26D0C97D221E2B8D00DFDB28 /* velocity.cpp in Sources */,
+				26D0C976221E2B8D00DFDB28 /* uiInteract.cpp in Sources */,
+				26D0C984221E2B8D00DFDB28 /* lander.cpp in Sources */,
+				26D0C983221E2B8D00DFDB28 /* point.cpp in Sources */,
+				26D0C97A221E2B8D00DFDB28 /* makefile in Sources */,
+				26D0C978221E2B8D00DFDB28 /* driver.cpp in Sources */,
+				26D0C980221E2B8D00DFDB28 /* game.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		26285602221E2480001D73E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		26285603221E2480001D73E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		26285605221E2480001D73E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		26285606221E2480001D73E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		262855F8221E2480001D73E6 /* Build configuration list for PBXProject "moonlander" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26285602221E2480001D73E6 /* Debug */,
+				26285603221E2480001D73E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26285604221E2480001D73E6 /* Build configuration list for PBXNativeTarget "moonlander" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26285605221E2480001D73E6 /* Debug */,
+				26285606221E2480001D73E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 262855F5221E2480001D73E6 /* Project object */;
+}

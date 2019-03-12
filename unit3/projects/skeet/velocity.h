@@ -10,7 +10,7 @@
 
 /***************
  * Class: Velocity
- * this class is still just a shell of what it needs to be.
+ * this class determines an objects velocity
  ***************/
 class Velocity
 {
@@ -20,11 +20,11 @@ class Velocity
 
  public:
    Velocity();
-   Velocity(float, float);
+   Velocity(const float & dx, const float & dy);
    float getDx() const { return dx; }
    float getDy() const { return dy; }
-   void setDx(float) {}
-   void setDy(float) {}
+    void setDx(const float & dx) {this->dx = dx;}
+    void setDy(const float & dy) {this->dy = dy;}
 };
 
 #endif

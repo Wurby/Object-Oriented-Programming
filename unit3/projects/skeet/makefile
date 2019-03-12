@@ -1,6 +1,6 @@
 ###############################################################
 # Program:
-#     Milestone 08, Skeet
+#     Milestone 09, Skeet
 #     Brother Dudley, CS165
 # Author:
 #     Joshua Pearson
@@ -11,31 +11,6 @@
 #     list anything here that you did to go above and beyond
 #     the base requirements for your project.
 ###############################################################
-
-##############################
-#	Well, here I am again. I really only have been able to put
-# 	4 hours into this, and most of that time was spent trying to
-#	understand the requirements. I am not sure what else to do,
-# 	but turn in this basically shell of a program and comment
-#	what I did do. I tried to make a skeleton for the rest of the
-#	project, but I don't know if I was even able to do that.
-#	
-#	I've been spending more time working on other classes and
-#	projects at work. Since I work full-time, I only have about
-#	10 hours a week I can dedicated to this class, and that's
-# 	showing to be insuffecient. Do you have any suggestions?
-#	You're obviously not familiar with my situation, and that's
-#	my fault, but I am struggling to both understand and work
-#	these opengl prove projects. It's difficult to understand
-#	what needs doing, and I am feeling a bit lost when I do
-#	put the time into these, I try to break them down into
-#	more managable pieces, but even those are daunting. 
-#
-#	What more can I do? I program in javascript at work, the
-#	way I see it, that's mostly irrelevant. Thanks for reading
-#	this novel, I hope I can recover from these, but I am unsure
-#	what I can do with the time allotment I have available.
-##############################
 
 LFLAGS = -lglut -lGLU -lGL
 
@@ -57,10 +32,10 @@ a.out: driver.o game.o uiInteract.o uiDraw.o point.o rifle.o
 bullet.o: flyingObject.h bullet.cpp bullet.h
 	g++ -c bullet.cpp
 
-birds.o: flyingObject.h birds.h birds.cpp
+bird.o: flyingObject.h bird.h bird.cpp
 	g++ -c birds.cpp
 
-flyingObject.o: flyingObject.cpp flyingObject.h point.h velocity.h
+flyingObject.o: flyingObject.cpp flyingObject.h point.h velocity.h uiDraw.h
 	g++ -c flyingObject.cpp
 
 velocity.o: velocity.cpp velocity.h
@@ -83,7 +58,6 @@ driver.o: game.h uiInteract.h driver.cpp
 
 rifle.o: rifle.h point.h uiDraw.h rifle.cpp
 	g++ -c rifle.cpp
-
 
 
 ###############################################################

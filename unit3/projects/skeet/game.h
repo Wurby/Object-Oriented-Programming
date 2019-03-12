@@ -22,7 +22,7 @@
 #include "velocity.h"
 #include "rifle.h"
 #include "bullet.h"
-#include "birds.h"
+#include "bird.h"
 
 // TODO: include your bullet and bird classes
 
@@ -73,7 +73,7 @@ class Game
    std::vector<Bullet> bullets;
 
    // TODO: declare your bird here (e.g., "Bird * bird;")
-
+    Bird * bird;
    /*************************************************
     * Private methods to help with the game logic.
     *************************************************/
