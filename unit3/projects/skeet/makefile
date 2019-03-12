@@ -5,11 +5,13 @@
 # Author:
 #     Joshua Pearson
 # Summary:
-#     This is an absolute shell of a program, can't compile 
+#     Compiles, but birds do not appear for some reason.
 # Above and Beyond
-#     When you submit your final project (not for milestones),
-#     list anything here that you did to go above and beyond
-#     the base requirements for your project.
+#     I unfortunately ran out of time to even finish the
+#     project. I did get a lot of help from the TA, but still
+#     ran out of time. I think I did a decent job with 5 hours
+#     but definitely didn't quite make it. I hope it isn't too
+#     tough to grade!
 ###############################################################
 
 LFLAGS = -lglut -lGLU -lGL
