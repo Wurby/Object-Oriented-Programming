@@ -31,7 +31,7 @@ int main()
          ints.push_back(enteredInt);
    }
 
-   std::cout << "Your list is: " << std::endl;
+   std::cout << "Your list is:\n";
    for (std::vector<int>::iterator it = ints.begin(); it != ints.end(); ++it)
    {
       std::cout << *it << std::endl;
@@ -45,7 +45,7 @@ int main()
          strings.push_back(enteredString);
    }
 
-   std::cout << "Your list is: " << std::endl;
+   std::cout << "Your list is:\n";
    for (std::vector<std::string>::iterator it = strings.begin(); it != strings.end(); ++it)
    {
       std::cout << *it << std::endl;
