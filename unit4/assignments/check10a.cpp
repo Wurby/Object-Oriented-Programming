@@ -20,16 +20,16 @@ int main()
 {
    std::vector<int> ints;
    std::vector<std::string> strings;
-   int enteredInt;
-   std::string enteredString;
+   int enteredInt = -1;
+   std::string enteredString = "dummyValue";
 
-   do
+   while (enteredInt != 0)
    {
       std::cout << "Enter int: ";
       std::cin >> enteredInt;
       if (enteredInt != 0)
          ints.push_back(enteredInt);
-   } while (enteredInt != 0);
+   }
 
    std::cout << "Your list is: " << std::endl;
    for (std::vector<int>::iterator it = ints.begin(); it != ints.end(); ++it)
@@ -37,13 +37,13 @@ int main()
       std::cout << *it << std::endl;
    }
 
-   do
+   while (enteredString != "quit")
    {
       std::cout << "Enter string: ";
       std::cin >> enteredString;
       if (enteredString != "quit")
          strings.push_back(enteredString);
-   } while (enteredString != "quit");
+   }
 
    std::cout << "Your list is: " << std::endl;
    for (std::vector<std::string>::iterator it = strings.begin(); it != strings.end(); ++it)
