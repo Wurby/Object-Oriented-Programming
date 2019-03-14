@@ -36,7 +36,7 @@ int main()
    {
       std::cout << *it << std::endl;
    }
-
+   std::cout << std::endl;
    while (enteredString != "quit")
    {
       std::cout << "Enter string: ";
