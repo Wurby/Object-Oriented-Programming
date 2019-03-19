@@ -1,35 +1,14 @@
-/*************************************************************
- * File: bullet.h
- * Author: Joshua Pearson
- *
- * Description: flying object extended class
- *************************************************************/
+#ifndef bullet_h
+#define bullet_h
 
-#ifndef BULLET_H
-#define BULLET_H
+#define BULLET_SPEED 5
+#define BULLET_LIFE 40
 
-#include "flyingObject.h"
-#include <cmath>
 
-#define BULLET_SPEED 10.0
 
-class Bullet : public FlyingObject
-{
-  public:
-    Bullet()
-    {
-        setAlive(true);
-    }
-    
-    
-   virtual void draw()
-    {
-        drawDot(getPoint());
-    };
-    
-    void fire(const Point & point, const float & angle);
+// Put your Bullet class here
 
-  private:
-};
 
-#endif
+
+
+#endif /* bullet_h */

@@ -1,49 +1,39 @@
 ###############################################################
 # Program:
-#     Milestone 09, Skeet
-#     Brother Dudley, CS165
+#     Milestone 10, Asteroids
+#     Brother {Burton, Falin, Ercanbrack, Comeau}, CS165
 # Author:
-#     Joshua Pearson
+#     your name here
 # Summary:
-#     Compiles, but birds do not appear for some reason.
+#     Put your summary code here... 
 # Above and Beyond
-#     I unfortunately ran out of time to even finish the
-#     project. I did get a lot of help from the TA, but still
-#     ran out of time. I think I did a decent job with 5 hours
-#     but definitely didn't quite make it. I hope it isn't too
-#     tough to grade!
+#     When you submit your final project (not for milestones),
+#     list anything here that you did to go above and beyond
+#     the base requirements for your project.
 ###############################################################
+
 
 LFLAGS = -lglut -lGLU -lGL
 
 ###############################################################
 # Build the main game
 ###############################################################
-a.out: driver.o game.o uiInteract.o uiDraw.o point.o rifle.o 
-	g++ driver.o game.o uiInteract.o uiDraw.o point.o rifle.o velocity.o
-	flyingObject.o bird.o bullet.o $(LFLAGS)
+a.out: driver.o game.o uiInteract.o uiDraw.o point.o velocity.o flyingObject.o ship.o bullet.o rocks.o
+	g++ driver.o game.o uiInteract.o uiDraw.o point.o velocity.o flyingObject.o ship.o bullet.o rocks.o $(LFLAGS)
 
 ###############################################################
 # Individual files
-#    uiDraw.o      Draw polygons on the screen and do all OpenGL graphics
-#    uiInteract.o  Handles input events
-#    point.o       The position on the screen
-#    ground.o      Handles the ground / world
-#    game.o        Handles the game interaction
+#    uiDraw.o       Draw polygons on the screen and do all OpenGL graphics
+#    uiInteract.o   Handles input events
+#    point.o        The position on the screen
+#    game.o         Handles the game interaction
+#    velocity.o     Velocity (speed and direction)
+#    flyingObject.o Base class for all flying objects
+#    ship.o         The player's ship
+#    bullet.o       The bullets fired from the ship
+#    rocks.o        Contains all of the Rock classes
 ###############################################################
-bullet.o: flyingObject.h bullet.cpp bullet.h
-	g++ -c bullet.cpp
-
-bird.o: flyingObject.h bird.h bird.cpp
-	g++ -c birds.cpp
-
-flyingObject.o: flyingObject.cpp flyingObject.h point.h velocity.h uiDraw.h
-	g++ -c flyingObject.cpp
-
-velocity.o: velocity.cpp velocity.h
-	g++ -c velocity.cpp
-
-uiDraw.o: uiDraw.cpp uiDraw.h point.h
+uiDraw.o: uiDraw.cpp uiDraw.h
 	g++ -c uiDraw.cpp
 
 uiInteract.o: uiInteract.cpp uiInteract.h
@@ -52,14 +42,26 @@ uiInteract.o: uiInteract.cpp uiInteract.h
 point.o: point.cpp point.h
 	g++ -c point.cpp
 
-game.o: game.cpp uiDraw.h uiInteract.h point.h rifle.h bullet.h birds.h
-	g++ -c game.cpp
-
-driver.o: game.h uiInteract.h driver.cpp
+driver.o: driver.cpp game.h
 	g++ -c driver.cpp
 
-rifle.o: rifle.h point.h uiDraw.h rifle.cpp
-	g++ -c rifle.cpp
+game.o: game.cpp game.h uiDraw.h uiInteract.h point.h velocity.h flyingObject.h bullet.h rocks.h ship.h
+	g++ -c game.cpp
+
+velocity.o: velocity.cpp velocity.h point.h
+	g++ -c velocity.cpp
+
+flyingObject.o: flyingObject.cpp flyingObject.h point.h velocity.h uiDraw.h
+	g++ -c flyingObject.cpp
+
+ship.o: ship.cpp ship.h flyingObject.h point.h velocity.h uiDraw.h
+	g++ -c ship.cpp
+
+bullet.o: bullet.cpp bullet.h flyingObject.h point.h velocity.h uiDraw.h
+	g++ -c bullet.cpp
+
+rocks.o: rocks.cpp rocks.h flyingObject.h point.h velocity.h uiDraw.h
+	g++ -c rocks.cpp
 
 
 ###############################################################
