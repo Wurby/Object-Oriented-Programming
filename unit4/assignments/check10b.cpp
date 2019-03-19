@@ -1,9 +1,9 @@
 /***********************************************************************
 * Program:
 *    Checkpoint 10b, Removing from Vectors
-*    Brother {Burton, Falin, Ercanbrack}, CS165
+*    Brother Dudley, CS165
 * Author:
-*    your name
+*    Joshua Pearsoh
 * Summary: 
 *    Summaries are not necessary for checkpoint assignments.
 ************************************************************************/
@@ -21,12 +21,12 @@ using namespace std;
  ***********************************************************/
 class Food
 {
-private:
+ private:
    string name;
    int month;
    int year;
 
-public:
+ public:
    /***********************
     * Constructors
     ***********************/
@@ -74,12 +74,12 @@ public:
  * Description: Asks the user for each item in their
  *   inventory and adds them to the vector.
  *****************************************************/
-void promptInventory(vector<Food*> &items)
+void promptInventory(vector<Food *> &items)
 {
    string name;
    int month;
    int year;
-   
+
    do
    {
       cout << "Enter item name: ";
@@ -95,35 +95,41 @@ void promptInventory(vector<Food*> &items)
 
          cin.ignore(); // get rid of the extra '\n' char
 
-
          // TODO: Fill this in!
          // Create a new food item using name, month, and year
          // Add it to the items vector
+         Food tempFood(name, month, year);
 
-         
+         items.push_back(&tempFood);
 
          cout << endl;
       }
 
-
    } while (name != "quit");
 }
-
 
 /*****************************************************
  * Function: displayInventory
  * Description: Displays each item in the inventory
  *****************************************************/
-void displayInventory(vector<Food*> &items)
+void displayInventory(vector<Food *> &items)
 {
    cout << "Your current inventory:\n";
-
 
    // TODO: Fill this in!
    // Use an iterator to walk through the vector
    // and call the display() method on each Food item
 
+   vector<Food *>::iterator it = items.begin();
 
+   while (it != items.end())
+   {
+      Food *pFood = *it;
+
+      (pFood)->display();
+
+      ++it;
+   }
 }
 
 /*****************************************************
@@ -132,18 +138,41 @@ void displayInventory(vector<Food*> &items)
  *  (occurred before the given month and year) and
  *  deletes them.
  *****************************************************/
-void removeExpiredItems(vector<Food*> &items, int currentMonth,
+void removeExpiredItems(vector<Food *> &items, int currentMonth,
                         int currentYear)
 {
    cout << "Checking for expired items...\n";
-
 
    // TODO: Fill this in!
    // Use an iterator to walk through the vector
    // and detect each item that has expired. Then delete it
    // and erase it from the list.
 
+   vector<Food *>::iterator it = items.begin();
 
+   while (it != items.end())
+   {
+      Food *pFood = *it;
+
+      if ((pFood)->getYear() >= currentYear)
+      {
+         if ((pFood)->getMonth() > currentMonth)
+         {
+            delete pFood;
+            it = items.erase(it);
+         }
+         else
+         {
+            ++it;
+         }
+      }
+      else
+      {
+         ++it;
+      }
+
+      pFood = NULL;
+   }
 }
 
 /*****************************************************
@@ -152,20 +181,20 @@ void removeExpiredItems(vector<Food*> &items, int currentMonth,
  *  (occurred before the given month and year) and
  *  deletes them.
  *****************************************************/
-void deleteRemainingItems(vector<Food*> &items)
+void deleteRemainingItems(vector<Food *> &items)
 {
    cout << "Cleaning up remaining items...\n";
 
    // You don't need to change this one--it works already.
    // (You can use it as a hint for your above functions...)
 
-   vector<Food*>::iterator it = items.begin();
+   vector<Food *>::iterator it = items.begin();
 
    while (it != items.end())
    {
       // *it (or in other words the thing that it refers to) is a Food*
       // so that's the thing we want to delete.
-      Food* pFood = *it;
+      Food *pFood = *it;
       delete pFood;
 
       // Not required, but its good to set pointers to null after deleting
@@ -180,7 +209,7 @@ void deleteRemainingItems(vector<Food*> &items)
 
 int main()
 {
-   vector<Food*> items;
+   vector<Food *> items;
 
    promptInventory(items);
    cout << endl;
