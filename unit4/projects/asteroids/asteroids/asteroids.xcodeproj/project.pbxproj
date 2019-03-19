@@ -18,6 +18,8 @@
 		26B5E9C622406D7600F0F879 /* uiDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26B5E9BC22406D7600F0F879 /* uiDraw.cpp */; };
 		26B5E9C722406D7600F0F879 /* flyingObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26B5E9BD22406D7600F0F879 /* flyingObject.cpp */; };
 		26B5E9C822406D7600F0F879 /* uiInteract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26B5E9BE22406D7600F0F879 /* uiInteract.cpp */; };
+		26B5E9CD2240711B00F0F879 /* ship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26B5E9C92240711B00F0F879 /* ship.cpp */; };
+		26B5E9CE2240711B00F0F879 /* rocks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26B5E9CC2240711B00F0F879 /* rocks.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +54,10 @@
 		26B5E9BD22406D7600F0F879 /* flyingObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = flyingObject.cpp; path = ../flyingObject.cpp; sourceTree = "<group>"; };
 		26B5E9BE22406D7600F0F879 /* uiInteract.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = uiInteract.cpp; path = ../uiInteract.cpp; sourceTree = "<group>"; };
 		26B5E9BF22406D7600F0F879 /* bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bullet.h; path = ../bullet.h; sourceTree = "<group>"; };
+		26B5E9C92240711B00F0F879 /* ship.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ship.cpp; path = ../ship.cpp; sourceTree = "<group>"; };
+		26B5E9CA2240711B00F0F879 /* ship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ship.h; path = ../ship.h; sourceTree = "<group>"; };
+		26B5E9CB2240711B00F0F879 /* rocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rocks.h; path = ../rocks.h; sourceTree = "<group>"; };
+		26B5E9CC2240711B00F0F879 /* rocks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = rocks.cpp; path = ../rocks.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,10 @@
 		26B5E99822406D4600F0F879 = {
 			isa = PBXGroup;
 			children = (
+				26B5E9CC2240711B00F0F879 /* rocks.cpp */,
+				26B5E9CB2240711B00F0F879 /* rocks.h */,
+				26B5E9C92240711B00F0F879 /* ship.cpp */,
+				26B5E9CA2240711B00F0F879 /* ship.h */,
 				26B5E9B622406D7600F0F879 /* bullet.cpp */,
 				26B5E9BF22406D7600F0F879 /* bullet.h */,
 				26B5E9B922406D7600F0F879 /* driver.cpp */,
@@ -175,7 +185,9 @@
 				26B5E9C322406D7600F0F879 /* point.cpp in Sources */,
 				26B5E9C722406D7600F0F879 /* flyingObject.cpp in Sources */,
 				26B5E9C822406D7600F0F879 /* uiInteract.cpp in Sources */,
+				26B5E9CD2240711B00F0F879 /* ship.cpp in Sources */,
 				26B5E9C022406D7600F0F879 /* velocity.cpp in Sources */,
+				26B5E9CE2240711B00F0F879 /* rocks.cpp in Sources */,
 				26B5E9C622406D7600F0F879 /* uiDraw.cpp in Sources */,
 				26B5E9C422406D7600F0F879 /* bullet.cpp in Sources */,
 				26B5E9C122406D7600F0F879 /* game.cpp in Sources */,
