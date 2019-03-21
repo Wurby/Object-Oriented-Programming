@@ -1,9 +1,9 @@
 /***********************************************************************
 * Program:
 *    Checkpoint 11a, Function Templates
-*    Brother {Burton, Falin, Ercanbrack}, CS165
+*    Brother Dudley, CS165
 * Author:
-*    your name
+*    Joshua Pearson
 * Summary: 
 *    Summaries are not necessary for checkpoint assignments.
 ************************************************************************/
@@ -15,9 +15,10 @@ using namespace std;
  * Function: swapValues
  * Description: Swaps two values
  **********************************************************/
-void swapValues(int &v1, int &v2)
+template <class T1>
+void swapValues(T1 &v1, T1 &v2)
 {
-   int temp;
+   T1 temp;
    temp = v1;
    v1 = v2;
    v2 = temp;
@@ -28,9 +29,10 @@ void swapValues(int &v1, int &v2)
  * Description: Finds the smallest value in the array
  *   and returns its index.
  **********************************************************/
-int indexOfSmallest(const int array[], int startIndex, int size)
+template <class T2>
+int indexOfSmallest(const T2 array[], int startIndex, int size)
 {
-   int min = array[startIndex];
+   T2 min = array[startIndex];
    int indexOfMin = startIndex;
 
    for (int index = startIndex + 1; index < size; index++)
@@ -51,7 +53,8 @@ int indexOfSmallest(const int array[], int startIndex, int size)
  *
  * Source: Savitch, Absolute C++ 5th Edition, pp. 216-217
  ***********************************************************/
-void sort(int array[], int size)
+template <class T3, class T4>
+void sort(T3 array[], T4 size)
 {
    int indexOfNextSmallest;
 
@@ -75,7 +78,7 @@ const int SIZE = 5;
 void doIntList()
 {
    // You should not need to change this function
-   
+
    int list[SIZE];
 
    cout << "Please enter " << SIZE << " ints.\n";
@@ -110,7 +113,7 @@ void doIntList()
 void doFloatList()
 {
    // You should not need to change this function
-   
+
    float list[SIZE];
 
    cout << "Please enter " << SIZE << " floats.\n";
@@ -145,7 +148,7 @@ void doFloatList()
 void doStringList()
 {
    // You should not need to change this function
-   
+
    string list[SIZE];
 
    cout << "Please enter " << SIZE << " strings.\n";
