@@ -9,15 +9,12 @@
 
 void FlyingObject::advance()
 {
-    position.addX(velocity.getDx());
-    position.addY(velocity.getDy());
-    
-   // position.setX(position.getX() + velocity.getDx());
-    
+   // position.addX(velocity.getDx());
+   // position.addY(velocity.getDy());
+   position.setY(position.getY() + velocity.getDy());
+   position.setX(position.getX() + velocity.getDx());
 }
 void FlyingObject::kill()
 {
-    alive = false;
+   alive = false;
 }
-
-

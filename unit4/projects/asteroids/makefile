@@ -21,8 +21,8 @@ LFLAGS = -lglut -lGLU -lGL
 ###############################################################
 # Build the main game
 ###############################################################
-a.out: driver.o game.o uiInteract.o uiDraw.o point.o velocity.o flyingObject.o ship.o bullet.o rocks.o
-	g++ driver.o game.o uiInteract.o uiDraw.o point.o velocity.o flyingObject.o ship.o bullet.o rocks.o $(LFLAGS)
+a.out: driver.o game.o uiInteract.o uiDraw.o point.o velocity.o flyingObject.o ship.o bullet.o rocks.o powerUp.o
+	g++ driver.o game.o uiInteract.o uiDraw.o point.o velocity.o flyingObject.o ship.o bullet.o rocks.o powerUp.o $(LFLAGS)
 
 ###############################################################
 # Individual files
@@ -35,6 +35,7 @@ a.out: driver.o game.o uiInteract.o uiDraw.o point.o velocity.o flyingObject.o s
 #    ship.o         The player's ship
 #    bullet.o       The bullets fired from the ship
 #    rocks.o        Contains all of the Rock classes
+#	  powerUp.o	     Contains powerups (bullet spread, shield)
 ###############################################################
 uiDraw.o: uiDraw.cpp uiDraw.h
 	g++ -c uiDraw.cpp
@@ -48,7 +49,7 @@ point.o: point.cpp point.h
 driver.o: driver.cpp game.h
 	g++ -c driver.cpp
 
-game.o: game.cpp game.h uiDraw.h uiInteract.h point.h velocity.h flyingObject.h bullet.h rocks.h ship.h
+game.o: game.cpp game.h uiDraw.h uiInteract.h point.h velocity.h flyingObject.h bullet.h rocks.h ship.h powerUp.h
 	g++ -c game.cpp
 
 velocity.o: velocity.cpp velocity.h point.h
@@ -66,6 +67,8 @@ bullet.o: bullet.cpp bullet.h flyingObject.h point.h velocity.h uiDraw.h
 rocks.o: rocks.cpp rocks.h flyingObject.h point.h velocity.h uiDraw.h
 	g++ -c rocks.cpp
 
+powerUp.o: flyingObject.h point.h velocity.h powerUp.h
+	g++ -c powerUp.cpp
 
 ###############################################################
 # General rules

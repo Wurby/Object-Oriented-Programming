@@ -14,18 +14,19 @@
 
 class FlyingObject
 {
-protected:
-  Point position;
-  Velocity velocity;
-  bool alive;
-    
-public:
-    
- 
-  void kill();
-  void advance();
-  virtual void draw() = 0;
-  Point getPoint() const
+  protected:
+    Point position;
+    Velocity velocity;
+    bool alive;
+    float rotation;
+
+  public:
+    void kill();
+    void advance();
+    virtual void draw() = 0;
+
+    // getters
+    Point getPoint() const
     {
         return position;
     }
@@ -37,17 +38,17 @@ public:
     {
         return alive;
     }
-    
-    //setters
-    void setPoint(const Point & point)
+
+    // setters
+    void setPoint(const Point &point)
     {
         position = point;
     }
-    void setVelocity(const Velocity & velocity)
+    void setVelocity(const Velocity &velocity)
     {
         this->velocity = velocity;
     }
-    void setAlive(const bool & alive)
+    void setAlive(const bool &alive)
     {
         this->alive = alive;
     }
