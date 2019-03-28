@@ -40,7 +40,10 @@ void Money ::display() const
 
 std::ostream &operator<<(std::ostream &out, const Money money1)
 {
-   out << money1.getDollars() << "." << money1.getCents();
+   out << money1.getDollars() << ".";
+   if (money1.getCents() < 10)
+      out << 0;
+   out << money1.getCents();
    return out;
 }
 bool operator==(const Money &money1, const Money &money2)
