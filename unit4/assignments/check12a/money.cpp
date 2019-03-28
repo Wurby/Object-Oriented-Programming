@@ -38,6 +38,11 @@ void Money ::display() const
    cout << setfill('0') << setw(2) << cents;
 }
 
+std::ostream &operator<<(std::ostream &out, const Money money1)
+{
+   out << money1.getDollars() << "." << money1.getCents();
+   return out;
+}
 bool operator==(const Money &money1, const Money &money2)
 {
    return (money1.getCents() == money2.getCents() &&

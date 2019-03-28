@@ -49,6 +49,7 @@ class Money
 };
 
 // Non-member operator prototypes go here
+std::ostream &operator<<(std::ostream &out, const Money money1);
 bool operator==(const Money &money1, const Money &money2);
 bool operator!=(const Money &money1, const Money &money2);
 
