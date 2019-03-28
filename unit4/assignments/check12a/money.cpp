@@ -13,7 +13,7 @@ using namespace std;
  * Purpose: Asks the user for values for dollars and cents
  *   and stores them.
  ****************************************************************/
-void Money :: prompt()
+void Money ::prompt()
 {
    int dollars;
    int cents;
@@ -32,8 +32,19 @@ void Money :: prompt()
  * Function: display
  * Purpose: Displays the value of the money object.
  ****************************************************************/
-void Money :: display() const 
+void Money ::display() const
 {
    cout << "$" << dollars << ".";
    cout << setfill('0') << setw(2) << cents;
+}
+
+bool operator==(const Money &money1, const Money &money2)
+{
+   return (money1.getCents() == money2.getCents() &&
+           money1.getDollars() == money2.getDollars());
+}
+bool operator!=(const Money &money1, const Money &money2)
+{
+   return (money1.getCents() != money2.getCents() &&
+           money1.getDollars() != money2.getDollars());
 }

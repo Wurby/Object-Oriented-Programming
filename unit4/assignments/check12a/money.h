@@ -10,11 +10,11 @@
  ******************************************************/
 class Money
 {
-private:
+ private:
    int dollars;
    int cents;
 
-public:
+ public:
    /************************
     * Constructors
     ************************/
@@ -35,7 +35,7 @@ public:
     ************************/
    int getDollars() const { return dollars; }
    int getCents() const { return cents; }
-   
+
    // These could be done in a smarter way to add cents to dollars if more than 100 etc.
    // but we're trying to keep it simple for this assignment...
    void setDollars(int dollars) { this->dollars = dollars; }
@@ -49,5 +49,7 @@ public:
 };
 
 // Non-member operator prototypes go here
+bool operator==(const Money &money1, const Money &money2);
+bool operator!=(const Money &money1, const Money &money2);
 
 #endif
