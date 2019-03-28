@@ -1,9 +1,9 @@
 ###############################################################
 # Program:
 #     Checkpoint 12a, Nonmember Operators
-#     Brother {Burton, Falin, Ercanbrack}, CS165
+#     Brother Dudley, CS165
 # Author:
-#     your name here
+#     Joshua Pearson
 # Summary:
 #     Summaries are not necessary for checkpoint assignments.
 ###############################################################
