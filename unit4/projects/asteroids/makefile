@@ -1,6 +1,6 @@
 ###############################################################
 # Program:
-#     Milestone 10, Asteroids
+#     Milestone 11, Asteroids
 #     Brother Dudley, CS165
 # Author:
 #     Joshua Pearson
