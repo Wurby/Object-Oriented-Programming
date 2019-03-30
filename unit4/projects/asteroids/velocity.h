@@ -20,11 +20,11 @@ class Velocity
 
  public:
    Velocity();
-   Velocity(const float & dx, const float & dy);
+   Velocity(const float &dx, const float &dy);
    float getDx() const { return dx; }
    float getDy() const { return dy; }
-    void setDx(const float & dx) {this->dx = dx;}
-    void setDy(const float & dy) {this->dy = dy;}
+   void setDx(const float &dx) { this->dx = dx; }
+   void setDy(const float &dy) { this->dy = dy; }
 };
 
 #endif

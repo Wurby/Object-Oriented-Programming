@@ -9,15 +9,24 @@
 
 class Ship : public FlyingObject
 {
- protected:
- 
- public:
-   virtual void draw();
-   void applyThrust();
-   void rotateRight();
-   void rotateLeft();
-   void triggerShield();
-   void drawShield();
+private:
+  bool isShielded;
+  bool thrust;
+
+public:
+  Ship() : thrust(false)
+  {
+  }
+  virtual void draw();
+  bool applyThrust();
+  void setThrust(const bool &thrust) { this->thrust = thrust; }
+
+  void rotateRight();
+  void rotateLeft();
+  // void setShielded(bool);
+  // bool getShield() { return this->isShielded; };
+  // void triggerShield();
+  // void drawShield();
 };
 
 #endif /* ship_h */

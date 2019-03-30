@@ -7,8 +7,12 @@
 
 #include "flyingObject.h"
 
-void FlyingObject::advance()
+void FlyingObject::advance(/*topLeft, bottomRight*/)
 {
+/*
+Advance must now handle screen wrapping.
+*/
+
    // position.addX(velocity.getDx());
    // position.addY(velocity.getDy());
    position.setY(position.getY() + velocity.getDy());

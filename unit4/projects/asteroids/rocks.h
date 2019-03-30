@@ -13,29 +13,27 @@
 
 class Asteroid : public FlyingObject
 {
-   Velocity getVelocity() { return velocity; }
-   float getRotation() { return rotation; };
+ protected:
+ public:
+   virtual void draw() = 0;
+
+   // xtras
+   // void randomImpact();
 };
 
 class SmallAsteroid : public Asteroid
 {
    virtual void draw();
-   Velocity getVelocity() { return velocity; }
-   float getRotation() { return rotation; };
 };
 
 class MediumAsteroid : public Asteroid
 {
    virtual void draw();
-   Velocity getVelocity() { return velocity; }
-   float getRotation() { return rotation; };
 };
 
 class LargeAsteroid : public Asteroid
 {
    virtual void draw();
-   Velocity getVelocity() { return velocity; }
-   float getRotation() { return rotation; };
 };
 
 #endif /* rocks_h */

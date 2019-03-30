@@ -15,21 +15,20 @@
 
 class Bullet : public FlyingObject
 {
-  public:
-    Bullet()
-    {
-        setAlive(true);
-    }
-    
-    
-   virtual void draw()
-    {
-        drawDot(getPoint());
-    };
-    
-    void fire(const Point & point, const float & angle);
+ public:
+   Bullet()
+   {
+      setAlive(true);
+   }
 
-  private:
+   virtual void draw()
+   {
+      drawDot(getPoint());
+   };
+
+   void fire(const Point &point, const float &angle, const Velocity &velocity);
+
+ private:
 };
 
 #endif
