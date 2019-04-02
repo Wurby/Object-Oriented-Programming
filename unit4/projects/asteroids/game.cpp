@@ -10,6 +10,7 @@
 // These are needed for the getClosestDistance function...
 #include <limits>
 #include <algorithm>
+#include <iterator>
 using namespace std;
 
 // TODO
@@ -33,13 +34,9 @@ handle memory like a boss
  * GAME CONSTRUCTOR
  ***************************************/
 Game ::Game(Point tl, Point br)
-    : topLeft(tl), bottomRight(br), rifle(br)
+    : topLeft(tl), bottomRight(br), ship(br)
 {
-   // Set up the initial conditions of the game
-   score = 0;
-
-   // TODO: Set your bird pointer to a good initial value (e.g., NULL)
-   bird = NULL;
+   //create large asteroids
 }
 
 /****************************************
@@ -47,12 +44,12 @@ Game ::Game(Point tl, Point br)
  ****************************************/
 Game ::~Game()
 {
-   // TODO: Check to see if there is currently a bird allocated
+   // TODO: Check to see if there is currently a asteroids allocated
    //       and if so, delete it.
-   if (bird != NULL)
+   if (asteroids != NULL)
    {
-      delete bird;
-      bird = NULL;
+      delete asteroids;
+      asteroids = NULL;
    }
 }
 
@@ -63,7 +60,7 @@ Game ::~Game()
 void Game ::advance()
 {
    advanceBullets();
-   advanceBird();
+   advanceAsteroids();
 
    handleCollisions();
    cleanUpZombies();
@@ -78,86 +75,72 @@ void Game ::advanceBullets()
    // Move each of the bullets forward if it is alive
    for (int i = 0; i < bullets.size(); i++)
    {
-      if (bullets[i].isAlive())
+      if (bullets[i]->isAlive())
       {
          // this bullet is alive, so tell it to move forward
-         bullets[i].advance();
+         bullets[i]->advance();
 
-         if (!isOnScreen(bullets[i].getPoint()))
+         if (!isOnScreen(bullets[i]->getPoint()))
          {
             // the bullet has left the screen
-            bullets[i].kill();
+            bullets[i]->kill();
          }
       }
    }
 }
 
 /**************************************************************************
- * GAME :: ADVANCE BIRD
+ * GAME :: ADVANCE asteroids
  *
- * 1. If there is no bird, create one with some probability
- * 2. If there is a bird, and it's alive, advance it
- * 3. Check if the bird has gone of the screen, and if so, "kill" it
+ * 1. If there is no asteroids, create one with some probability
+ * 2. If there are asteroids, and they're alive, advance them
+ * 3. Check if the asteroids has gone of the screen, and if so, wrap them.
  **************************************************************************/
-void Game ::advanceBird()
+void Game ::advanceAsteroids()
 {
-   if (bird == NULL)
+   if (asteroids == NULL)
    {
-      // there is no bird right now, possibly create one
-
-      // "resurrect" it will some random chance
-      if (random(0, 30) == 0)
-      {
-         // create a new bird
-         bird = createBird();
-      }
+      // there are no asteroids right now.
+      // make some?
+      asteroids.push_back(createAsteroid());
    }
    else
    {
-      // we have a bird, make sure it's alive
-      if (bird->isAlive())
+      // we have asteroids, make sure they're alive
+      for (int i = 0; i < asteroids.size(); i++)
       {
-         // move it forward
-         bird->advance();
-
-         // check if the bird has gone off the screen
-         if (!isOnScreen(bird->getPoint()))
+         if (asteroids[i]->isAlive())
          {
-            // We have missed the bird
-            bird->kill();
+            // move it forward
+            asteroids[i]->advance();
+
+            // check if the asteroids has gone off the screen
+            if (!isOnScreen(asteroids[i]->getPoint()))
+            {
+               // figure out screen wrapping, currently they die.
+               asteroids[i]->kill();
+            }
          }
       }
    }
 }
 
 /**************************************************************************
- * GAME :: CREATE BIRD
- * Create a bird of a random type according to the rules of the game.
+ * GAME :: CREATE asteroids
+ * Create a asteroids of a random type according to the rules of the game.
  **************************************************************************/
-Bird *Game ::createBird()
+Asteroid *Game ::createAsteroid()
 {
-   Bird *newBird = NULL;
+   Asteroid *newAsteroid = NULL;
 
    // TODO: Fill this in
-   int randomInt = random(2, 5);
-   Point randomPoint = new Point(random(0, 2), random(0, 100));
+
+   Point randomPoint = new Point(random(0, 100), random(0, 100));
    // Create a tempority random Point randomPoint
+   newAsteroid = new Asteroid(randomPoint);
+   //newasteroids = new asteroids();
 
-   //newBird = new Bird();
-   switch (randomInt)
-   {
-   case 3:
-      newBird = new standardBird(randomPoint);
-      break;
-   case 4:
-      newBird = new toughBird(randomPoint);
-      break;
-   default:
-      newBird = new sacredBird(randomPoint);
-      break;
-   }
-
-   return newBird;
+   return newAsteroid;
 }
 
 /**************************************************************************
@@ -171,28 +154,28 @@ bool Game ::isOnScreen(const Point &point)
 
 /**************************************************************************
  * GAME :: HANDLE COLLISIONS
- * Check for a collision between a bird and a bullet.
+ * Check for a collision between a asteroids and a bullet.
  **************************************************************************/
 void Game ::handleCollisions()
 {
    // now check for a hit (if it is close enough to any live bullets)
    for (int i = 0; i < bullets.size(); i++)
    {
-      if (bullets[i].isAlive())
+      if (bullets[i]->isAlive())
       {
          // this bullet is alive, see if its too close
 
-         // check if the bird is at this point (in case it was hit)
-         if (bird != NULL && bird->isAlive())
+         // check if the asteroids is at this point (in case it was hit)
+         if (asteroids != NULL && asteroids->isAlive())
          {
             // BTW, this logic could be more sophisiticated, but this will
             // get the job done for now...
-            if (fabs(bullets[i].getPoint().getX() - bird->getPoint().getX()) < CLOSE_ENOUGH && fabs(bullets[i].getPoint().getY() - bird->getPoint().getY()) < CLOSE_ENOUGH)
+            if (fabs(bullets[i].getPoint().getX() - asteroids->getPoint().getX()) < CLOSE_ENOUGH && fabs(bullets[i].getPoint().getY() - asteroids->getPoint().getY()) < CLOSE_ENOUGH)
             {
                //we have a hit!
 
-               // hit the bird
-               int points = bird->hit();
+               // hit the asteroids
+               int points = asteroids->hit();
                score += points;
 
                // the bullet is dead as well
@@ -206,25 +189,25 @@ void Game ::handleCollisions()
 
 /**************************************************************************
  * GAME :: CLEAN UP ZOMBIES
- * Remove any dead objects (take bullets out of the list, deallocate bird)
+ * Remove any dead objects (take bullets out of the list, deallocate asteroids)
  **************************************************************************/
 void Game ::cleanUpZombies()
 {
-   // check for dead bird
-   if (bird != NULL && !bird->isAlive())
+   // check for dead asteroids
+   if (asteroids != NULL && !asteroids->isAlive())
    {
-      // the bird is dead, but the memory is not freed up yet
+      // the asteroids is dead, but the memory is not freed up yet
 
-      // TODO: Clean up the memory used by the bird
-      delete bird;
-      bird = NULL;
+      // TODO: Clean up the memory used by the asteroids
+      delete &asteroids;
+      asteroids = NULL;
    }
 
    // Look for dead bullets
-   vector<Bullet>::iterator bulletIt = bullets.begin();
+   vector<Bullet>::iterator bulletIt = bullets->begin();
    while (bulletIt != bullets.end())
    {
-      Bullet bullet = *bulletIt;
+      Bullet *bullet = *bulletIt;
       // Asteroids Hint:
       // If we had a list of pointers, we would need this line instead:
       //Bullet* pBullet = *bulletIt;
@@ -249,24 +232,24 @@ void Game ::cleanUpZombies()
  ***************************************/
 void Game ::handleInput(const Interface &ui)
 {
-   // Change the direction of the rifle
+   // Change the direction of the ship
    if (ui.isLeft())
    {
-      rifle.moveLeft();
+      ship.rotateLeft();
    }
 
    if (ui.isRight())
    {
-      rifle.moveRight();
+      ship.rotateRight();
    }
 
    // Check for "Spacebar
    if (ui.isSpace())
    {
-      Bullet newBullet;
-      newBullet.fire(rifle.getPoint(), rifle.getAngle());
+      Bullet *newBullet;
+      newBullet->fire(ship.getPoint(), ship.getRotation(), ship.getVelocity());
 
-      bullets.push_back(newBullet);
+      bullets->push_back(newBullet);
    }
 }
 
@@ -276,23 +259,23 @@ void Game ::handleInput(const Interface &ui)
  *********************************************/
 void Game ::draw(const Interface &ui)
 {
-   // draw the bird
+   // draw the asteroids
 
-   // TODO: Check if you have a valid bird and if it's alive
+   // TODO: Check if you have a valid asteroids and if it's alive
    // then call it's draw method
-   if (bird != NULL && !bird->isAlive())
+   if (asteroids != NULL && !asteroids->isAlive())
    {
-      bird->draw();
+      asteroids->draw();
    }
-   // draw the rifle
-   rifle.draw();
+   // draw the ship
+   ship.draw();
 
    // draw the bullets, if they are alive
    for (int i = 0; i < bullets.size(); i++)
    {
-      if (bullets[i].isAlive())
+      if (bullets[i]->isAlive())
       {
-         bullets[i].draw();
+         bullets[i]->draw();
       }
    }
 
