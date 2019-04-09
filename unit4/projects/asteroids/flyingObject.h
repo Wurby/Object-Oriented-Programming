@@ -12,7 +12,7 @@
 #include "velocity.h"
 #include "uiDraw.h"
 
-// Rotation should probably not be in flyingObject, as it only applies to the rocks and ship.
+// TODO: Rotation should not be in flyingObject, as it only applies to the rocks and ship.
 
 class FlyingObject
 {

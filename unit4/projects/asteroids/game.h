@@ -19,54 +19,55 @@
 
 class Game
 {
- public:
-   /*********************************************
+public:
+  /*********************************************
     * Constructor
     * Initializes the game
     *********************************************/
-   Game(Point tl, Point br);
-   ~Game();
+  Game(Point tl, Point br);
+  ~Game();
 
-   /*********************************************
+  /*********************************************
     * Function: handleInput
     * Description: Takes actions according to whatever
     *  keys the user has pressed.
     *********************************************/
-   void handleInput(const Interface &ui);
+  void handleInput(const Interface &ui);
 
-   /*********************************************
+  /*********************************************
     * Function: advance
     * Description: Move everything forward one
     *  step in time.
     *********************************************/
-   void advance();
+  void advance();
 
-   /*********************************************
+  /*********************************************
     * Function: draw
     * Description: draws everything for the game.
     *********************************************/
-   void draw(const Interface &ui);
+  void draw(const Interface &ui);
 
- private:
-   // The coordinates of the screen
-   Point topLeft;
-   Point bottomRight;
+private:
+  // The coordinates of the screen
+  Point topLeft;
+  Point bottomRight;
 
-   Ship ship;
-   std::vector<Bullet *> bullets;
-   std::vector<Asteroid *> asteroids;
+  Ship ship;
+  std::vector<Bullet *> bullets;
+  std::vector<Asteroid *> asteroids;
 
-   /*************************************************
+  /*************************************************
     * Private methods to help with the game logic.
     *************************************************/
-   bool isOnScreen(const Point &point);
-   void advanceBullets();
-   void advanceAsteroids();
-   void advanceShip();
-   Asteroid *createAsteroid();
+  bool isOnScreen(const Point &point);
+  void advanceBullets();
+  void advanceAsteroids();
+  void advanceShip();
+  Asteroid *createAsteroid();
+  float getClosestDistance(const FlyingObject &obj1, const FlyingObject &obj2) const;
 
-   void handleCollisions();
-   void cleanUpZombies();
+  void handleCollisions();
+  void cleanUpZombies();
 };
 
 #endif /* GAME_H */

@@ -14,6 +14,8 @@ private:
   bool thrust;
 
 public:
+  //TODO: add rotation to this.
+  //TODO: create ship constructor.
   Ship() : thrust(false)
   {
   }
@@ -23,6 +25,7 @@ public:
 
   void rotateRight();
   void rotateLeft();
+
   // void setShielded(bool);
   // bool getShield() { return this->isShielded; };
   // void triggerShield();

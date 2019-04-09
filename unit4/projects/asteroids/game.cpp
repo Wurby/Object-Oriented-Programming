@@ -13,21 +13,6 @@
 #include <iterator>
 using namespace std;
 
-// TODO
-/*
-take into account that bullets is now a vector of Bullet *'s
-change rifle to ship.
-birds to rocks
-
-create large rocks in the game constructor.
-
-consider having two collision handling functions
-
-consider adding parameters to createRocks() to allow for the "int rocks::hit" function to return and int which will let you know what next rocks to create
-
-handle memory like a boss
-*/
-
 #define OFF_SCREEN_BORDER_AMOUNT 5
 
 /***************************************
@@ -44,12 +29,14 @@ Game ::Game(Point tl, Point br)
  ****************************************/
 Game ::~Game()
 {
-   // TODO: Check to see if there is currently a asteroids allocated
-   //       and if so, delete it.
-   if (asteroids != NULL)
+
+   for (int i = 0; i < asteroids.size(); i++)
    {
-      delete asteroids;
-      asteroids = NULL;
+      if (asteroids[i] != NULL)
+      {
+         delete asteroids[i];
+         asteroids[i] = NULL;
+      }
    }
 }
 
@@ -98,23 +85,24 @@ void Game ::advanceBullets()
  **************************************************************************/
 void Game ::advanceAsteroids()
 {
-   if (asteroids == NULL)
+   //check each asteroid.
+   for (int i = 0; i < asteroids.size(); i++)
    {
-      // there are no asteroids right now.
-      // make some?
-      asteroids.push_back(createAsteroid());
-   }
-   else
-   {
-      // we have asteroids, make sure they're alive
-      for (int i = 0; i < asteroids.size(); i++)
+      //make sure it's an asteroid.
+      if (asteroids[i] == NULL)
       {
+         asteroids.push_back(createAsteroid());
+      }
+      else
+      {
+         // we have asteroids, make sure they're alive
+
          if (asteroids[i]->isAlive())
          {
             // move it forward
             asteroids[i]->advance();
 
-            // check if the asteroids has gone off the screen
+            // check if the asteroid has gone off the screen
             if (!isOnScreen(asteroids[i]->getPoint()))
             {
                // figure out screen wrapping, currently they die.
@@ -137,7 +125,7 @@ Asteroid *Game ::createAsteroid()
 
    Point randomPoint = new Point(random(0, 100), random(0, 100));
    // Create a tempority random Point randomPoint
-   newAsteroid = new Asteroid(randomPoint);
+   newAsteroid = new Asteroid(randomPoint); //BUG: Not sure what is going on here. fix!
    //newasteroids = new asteroids();
 
    return newAsteroid;
@@ -194,6 +182,7 @@ void Game ::handleCollisions()
 void Game ::cleanUpZombies()
 {
    // check for dead asteroids
+   //TODO: Add for loop to check each asteroid.
    if (asteroids != NULL && !asteroids->isAlive())
    {
       // the asteroids is dead, but the memory is not freed up yet
@@ -204,6 +193,7 @@ void Game ::cleanUpZombies()
    }
 
    // Look for dead bullets
+
    vector<Bullet>::iterator bulletIt = bullets->begin();
    while (bulletIt != bullets.end())
    {
@@ -249,7 +239,7 @@ void Game ::handleInput(const Interface &ui)
       Bullet *newBullet;
       newBullet->fire(ship.getPoint(), ship.getRotation(), ship.getVelocity());
 
-      bullets->push_back(newBullet);
+      bullets.push_back(newBullet);
    }
 }
 
@@ -261,8 +251,9 @@ void Game ::draw(const Interface &ui)
 {
    // draw the asteroids
 
-   // TODO: Check if you have a valid asteroids and if it's alive
-   // then call it's draw method
+   /* TODO: Check if you have a valid asteroid and if it's alive
+   then call its draw method */
+   // TODO: Loop the asteroids.
    if (asteroids != NULL && !asteroids->isAlive())
    {
       asteroids->draw();
@@ -287,38 +278,35 @@ void Game ::draw(const Interface &ui)
    drawNumber(scoreLocation, score);
 }
 
-// You may find this function helpful...
-
 /**********************************************************
  * Function: getClosestDistance
  * Description: Determine how close these two objects will
  *   get in between the frames.
  **********************************************************/
-/*
-float Game :: getClosestDistance(const FlyingObject &obj1, const FlyingObject &obj2) const
+
+float Game ::getClosestDistance(const FlyingObject &obj1, const FlyingObject &obj2) const
 {
    // find the maximum distance traveled
    float dMax = max(abs(obj1.getVelocity().getDx()), abs(obj1.getVelocity().getDy()));
    dMax = max(dMax, abs(obj2.getVelocity().getDx()));
    dMax = max(dMax, abs(obj2.getVelocity().getDy()));
    dMax = max(dMax, 0.1f); // when dx and dy are 0.0. Go through the loop once.
-   
+
    float distMin = std::numeric_limits<float>::max();
    for (float i = 0.0; i <= dMax; i++)
    {
       Point point1(obj1.getPoint().getX() + (obj1.getVelocity().getDx() * i / dMax),
-                     obj1.getPoint().getY() + (obj1.getVelocity().getDy() * i / dMax));
+                   obj1.getPoint().getY() + (obj1.getVelocity().getDy() * i / dMax));
       Point point2(obj2.getPoint().getX() + (obj2.getVelocity().getDx() * i / dMax),
-                     obj2.getPoint().getY() + (obj2.getVelocity().getDy() * i / dMax));
-      
+                   obj2.getPoint().getY() + (obj2.getVelocity().getDy() * i / dMax));
+
       float xDiff = point1.getX() - point2.getX();
       float yDiff = point1.getY() - point2.getY();
-      
-      float distSquared = (xDiff * xDiff) +(yDiff * yDiff);
-      
+
+      float distSquared = (xDiff * xDiff) + (yDiff * yDiff);
+
       distMin = min(distMin, distSquared);
    }
-   
+
    return sqrt(distMin);
 }
-*/

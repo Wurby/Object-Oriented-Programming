@@ -16,6 +16,7 @@ class Asteroid : public FlyingObject
  protected:
  public:
    virtual void draw() = 0;
+   //TODO: add rotation to this
 
    // xtras
    // void randomImpact();
@@ -23,16 +24,19 @@ class Asteroid : public FlyingObject
 
 class SmallAsteroid : public Asteroid
 {
+   //TODO: create constructor
    virtual void draw();
 };
 
 class MediumAsteroid : public Asteroid
 {
+   //TODO: create constructor
    virtual void draw();
 };
 
 class LargeAsteroid : public Asteroid
 {
+   //TODO: create constructor
    virtual void draw();
 };
 
