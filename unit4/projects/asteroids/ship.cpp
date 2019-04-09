@@ -1,10 +1,18 @@
 #include "ship.h"
 
+Ship::Ship() : thrust(false)
+{
+   Point point(100, 100);
+   setPoint(point);
+   setRotation(0);
+   draw();
+}
+
 void Ship::draw()
 {
    drawShip(this->position, this->rotation, thrust);
 }
-bool Ship::applyThrust() //mega flawed, this needs to take direction into account (obviously)
+bool Ship::applyThrust()
 {
    setThrust(true);
 

@@ -20,13 +20,13 @@
 class Game
 {
 public:
+  int score = 0;
   /*********************************************
     * Constructor
     * Initializes the game
     *********************************************/
   Game(Point tl, Point br);
   ~Game();
-
   /*********************************************
     * Function: handleInput
     * Description: Takes actions according to whatever
@@ -51,7 +51,6 @@ private:
   // The coordinates of the screen
   Point topLeft;
   Point bottomRight;
-
   Ship ship;
   std::vector<Bullet *> bullets;
   std::vector<Asteroid *> asteroids;
@@ -59,6 +58,7 @@ private:
   /*************************************************
     * Private methods to help with the game logic.
     *************************************************/
+
   bool isOnScreen(const Point &point);
   void advanceBullets();
   void advanceAsteroids();

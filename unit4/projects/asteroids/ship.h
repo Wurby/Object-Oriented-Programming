@@ -12,17 +12,22 @@ class Ship : public FlyingObject
 private:
   bool isShielded;
   bool thrust;
+  float rotation;
 
 public:
-  //TODO: add rotation to this.
   //TODO: create ship constructor.
-  Ship() : thrust(false)
-  {
-  }
+  Ship();
   virtual void draw();
   bool applyThrust();
   void setThrust(const bool &thrust) { this->thrust = thrust; }
-
+  float getRotation() const
+  {
+    return rotation;
+  }
+  void setRotation(const float &rotation)
+  {
+    this->rotation = rotation;
+  }
   void rotateRight();
   void rotateLeft();
 

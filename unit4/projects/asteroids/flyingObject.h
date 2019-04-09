@@ -20,7 +20,6 @@ class FlyingObject
    Point position;
    Velocity velocity;
    bool alive;
-   float rotation;
 
  public:
    //contructors
@@ -29,13 +28,12 @@ class FlyingObject
       position.setX(random(0, 201));
       position.setY(random(0, 201));
    }
-   FlyingObject(Point &position, Velocity &velocity, float &rotation)
+   FlyingObject(Point &position, Velocity &velocity)
    {
       this->position = position;
       this->velocity = velocity;
 
       setAlive(true);
-      setRotation(rotation);
    }
 
    //methods
@@ -56,10 +54,6 @@ class FlyingObject
    {
       return alive;
    }
-   float getRotation() const
-   {
-      return rotation;
-   }
 
    // setters
    void setPoint(const Point &point)
@@ -73,10 +67,6 @@ class FlyingObject
    void setAlive(const bool &alive)
    {
       this->alive = alive;
-   }
-   void setRotation(const float &rotation)
-   {
-      this->rotation = rotation;
    }
 };
 #endif

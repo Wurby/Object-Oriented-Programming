@@ -19,9 +19,14 @@ using namespace std;
  * GAME CONSTRUCTOR
  ***************************************/
 Game ::Game(Point tl, Point br)
-    : topLeft(tl), bottomRight(br), ship(br)
+    : topLeft(tl), bottomRight(br), ship()
 {
-   //create large asteroids
+   //Creates four asteroids.
+   for (int i = 0; i < 4; i++)
+   {
+      asteroids.push_back(createAsteroid());
+   }
+   int score = 0;
 }
 
 /****************************************
@@ -121,12 +126,10 @@ Asteroid *Game ::createAsteroid()
 {
    Asteroid *newAsteroid = NULL;
 
-   // TODO: Fill this in
-
-   Point randomPoint = new Point(random(0, 100), random(0, 100));
    // Create a tempority random Point randomPoint
-   newAsteroid = new Asteroid(randomPoint); //BUG: Not sure what is going on here. fix!
-   //newasteroids = new asteroids();
+   Point randomPoint = new Point(random(0, 100), random(0, 100));
+
+   newAsteroid = new LargeAsteroid(randomPoint);
 
    return newAsteroid;
 }
@@ -151,25 +154,23 @@ void Game ::handleCollisions()
    {
       if (bullets[i]->isAlive())
       {
-         // this bullet is alive, see if its too close
-
          // check if the asteroids is at this point (in case it was hit)
-         if (asteroids != NULL && asteroids->isAlive())
-         {
-            // BTW, this logic could be more sophisiticated, but this will
-            // get the job done for now...
-            if (fabs(bullets[i].getPoint().getX() - asteroids->getPoint().getX()) < CLOSE_ENOUGH && fabs(bullets[i].getPoint().getY() - asteroids->getPoint().getY()) < CLOSE_ENOUGH)
+         for (int j = 0; j < asteroids.size(); j++)
+            if (asteroids[j] != NULL && asteroids[j]->isAlive())
             {
-               //we have a hit!
+               // BTW, this logic could be more sophisiticated, but this will
+               // get the job done for now...
+               if (fabs(bullets[i]->getPoint().getX() - asteroids[i]->getPoint().getX()) < 3 && fabs(bullets[i]->getPoint().getY() - asteroids[j]->getPoint().getY()) < 3)
+               {
+                  //we have a hit!
+                  score += 1;
+                  // hit the asteroids
+                  asteroids[j]->hit();
 
-               // hit the asteroids
-               int points = asteroids->hit();
-               score += points;
-
-               // the bullet is dead as well
-               bullets[i].kill();
+                  // the bullet is dead as well
+                  bullets[i]->kill();
+               }
             }
-         }
       } // if bullet is alive
 
    } // for bullets
@@ -182,36 +183,24 @@ void Game ::handleCollisions()
 void Game ::cleanUpZombies()
 {
    // check for dead asteroids
-   //TODO: Add for loop to check each asteroid.
-   if (asteroids != NULL && !asteroids->isAlive())
+   for (int i = 0; i < asteroids.size(); i++)
    {
-      // the asteroids is dead, but the memory is not freed up yet
-
-      // TODO: Clean up the memory used by the asteroids
-      delete &asteroids;
-      asteroids = NULL;
+      if (asteroids[i] != NULL && !asteroids[i]->isAlive())
+      {
+         // the asteroids is dead, freeing up memory.
+         delete &asteroids;
+         asteroids[i] = NULL;
+      }
    }
 
-   // Look for dead bullets
+   // Look for dead bullets and remove frrom memory
 
-   vector<Bullet>::iterator bulletIt = bullets->begin();
-   while (bulletIt != bullets.end())
+   for (int i = 0; i < bullets.size(); i++)
    {
-      Bullet *bullet = *bulletIt;
-      // Asteroids Hint:
-      // If we had a list of pointers, we would need this line instead:
-      //Bullet* pBullet = *bulletIt;
-
-      if (!bullet.isAlive())
+      if (!bullets[i]->isAlive())
       {
-         // If we had a list of pointers, we would need to delete the memory here...
-
-         // remove from list and advance
-         bulletIt = bullets.erase(bulletIt);
-      }
-      else
-      {
-         bulletIt++; // advance
+         delete bullets[i];
+         bullets[i] = NULL;
       }
    }
 }
@@ -251,12 +240,12 @@ void Game ::draw(const Interface &ui)
 {
    // draw the asteroids
 
-   /* TODO: Check if you have a valid asteroid and if it's alive
-   then call its draw method */
-   // TODO: Loop the asteroids.
-   if (asteroids != NULL && !asteroids->isAlive())
+   for (int i = 0; i < asteroids.size(); i++)
    {
-      asteroids->draw();
+      if (asteroids[i] != NULL && !asteroids[i]->isAlive())
+      {
+         asteroids[i]->draw();
+      }
    }
    // draw the ship
    ship.draw();

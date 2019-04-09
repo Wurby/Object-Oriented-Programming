@@ -14,9 +14,19 @@
 class Asteroid : public FlyingObject
 {
  protected:
+   float rotation;
+
  public:
    virtual void draw() = 0;
-   //TODO: add rotation to this
+   float getRotation() const
+   {
+      return rotation;
+   }
+   void setRotation(const float &rotation)
+   {
+      this->rotation = rotation;
+   }
+   virtual void hit();
 
    // xtras
    // void randomImpact();
@@ -24,20 +34,26 @@ class Asteroid : public FlyingObject
 
 class SmallAsteroid : public Asteroid
 {
-   //TODO: create constructor
+ public:
+   SmallAsteroid(Point &point);
    virtual void draw();
+   virtual void hit();
 };
 
 class MediumAsteroid : public Asteroid
 {
-   //TODO: create constructor
+ public:
+   MediumAsteroid(Point &point);
    virtual void draw();
+   virtual void hit();
 };
 
 class LargeAsteroid : public Asteroid
 {
-   //TODO: create constructor
+ public:
+   LargeAsteroid(Point &point);
    virtual void draw();
+   virtual void hit();
 };
 
 #endif /* rocks_h */

@@ -1,18 +1,22 @@
 ###############################################################
 # Program:
-#     Milestone 11, Asteroids
+#     Project 12, Asteroids
 #     Brother Dudley, CS165
 # Author:
 #     Joshua Pearson
 # Summary:
-#     Spent most of my time this week getting a good plan.
-#     Looks like crap, because it's not UML, but yeah.
-#     I don't have much here, but yes. I think this will go
-#     much better than the last prove, though this start is slow
+#     I unfortunately only had between 2-4 hours a week to work
+#     on this project, I couldn't get it to do anything and
+#    	could not continue before it was due. I laid a good
+#     ground-work and added todos and bugs to fix while working
+#		so at least I have that going for me.
+#		theoretically, the game should allow the user to blow up
+#		asteroids.
 # Above and Beyond
-#     When you submit your final project (not for milestones),
-#     list anything here that you did to go above and beyond
-#     the base requirements for your project.
+#    	Laid the ground work to add extras in the form of
+#     a shield and bullet splitting/spread, along with a plan
+#     to add random colosions between asteroids to make it a 
+#b		bit more random.
 ###############################################################
 
 
