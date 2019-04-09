@@ -1,6 +1,6 @@
 ###############################################################
 # Program:
-#     Prove 13, Asteroids
+#     Project 13, Asteroids
 #     Brother Dudley, CS165
 # Author:
 #     Joshua Pearson
